@@ -13,7 +13,7 @@ df = pd.DataFrame(
 
 st.title('Facial Recognition')
 # Display text
-st.text('Team Members: ')
+st.text('Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane Richard York, Carter Daniel Robinson')
 st.markdown('_**Markdown**_') # see #*
 st.caption('Balloons. Hundreds of them...')
 st.latex(r''' e^{i\pi} + 1 = 0 ''')
