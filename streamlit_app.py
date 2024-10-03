@@ -27,6 +27,10 @@ st.header('Methods')
 st.header('Results and Discussion')
 
 st.header('References')
+my_list = ["Item 1", "Item 2", "Item 3", "Item 4"]
+
+# Use st.write to display the list
+st.write(my_list)
 
 st.markdown('_**Markdown**_') # see #*
 st.caption('Balloons. Hundreds of them...')
