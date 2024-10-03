@@ -11,9 +11,20 @@ df = pd.DataFrame(
    ]
 )
 
-st.title('Facial Recognition')
+st.title('Facial Expression Recognition')
 # Display text
 st.text('Team Members: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane Richard York, Carter Daniel Robinson')
+
+st.header('Introduction/Background')
+
+st.header('Problem Definition')
+
+st.header('Methods')
+
+st.header('Results and Discussion')
+
+st.header('References')
+
 st.markdown('_**Markdown**_') # see #*
 st.caption('Balloons. Hundreds of them...')
 st.latex(r''' e^{i\pi} + 1 = 0 ''')
