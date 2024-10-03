@@ -11,9 +11,9 @@ df = pd.DataFrame(
    ]
 )
 
-st.title('Facial recognition')
+st.title('Facial Recognition')
 # Display text
-st.text('Fixed width text')
+st.text('Team Members: ')
 st.markdown('_**Markdown**_') # see #*
 st.caption('Balloons. Hundreds of them...')
 st.latex(r''' e^{i\pi} + 1 = 0 ''')
