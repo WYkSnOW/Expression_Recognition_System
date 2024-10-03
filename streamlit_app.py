@@ -5,7 +5,7 @@ import pandas as pd
 st.title('Facial Expression Recognition System Using Machine Learning')
 
 #
-st.text('Team Members: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane R. York, Carter D. Robinson')
+st.text('By: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane R. York, and Carter D. Robinson')
 
 #
 st.header('Introduction/Background')
