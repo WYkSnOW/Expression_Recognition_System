@@ -21,7 +21,12 @@ st.header('Introduction/Background')
 st.write('Facial expressions play a crucial role in non-verbal communication, conveying emotions and intentions.')
 
 st.header('Problem Definition')
-
+st.markdown("""
+**Problem:**
+- How can facial expressions be accurately recognized in real-time scenarios using facial detection systems?
+**Motivation:**
+- While current facial expression recognition systems are effective, they often struggle with real-time performance and robustness. By combining facial key points and image data, we aim to develop a more efficient and robust system.
+""")
 st.header('Methods')
 
 st.header('Results and Discussion')
