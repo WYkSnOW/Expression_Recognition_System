@@ -11,6 +11,7 @@ df = pd.DataFrame(
    ]
 )
 
+st.title('Facial recognition')
 # Display text
 st.text('Fixed width text')
 st.markdown('_**Markdown**_') # see #*
