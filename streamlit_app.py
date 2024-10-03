@@ -9,7 +9,9 @@ st.text('Team Members: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane Richard York,
 
 #
 st.header('Introduction/Background')
-st.write('Facial expressions play a crucial role in non-verbal communication, conveying emotions and intentions.')
+st.write('Facial expressions play a crucial role in non-verbal communication, conveying emotions and intentions.'
+        'This project aims to develop a system that automatically detects and recognizes facial expressions using machine learning techniques.'
+        )
 
 #
 st.header('Problem Definition')
