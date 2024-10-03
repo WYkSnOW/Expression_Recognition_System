@@ -12,10 +12,13 @@ df = pd.DataFrame(
 )
 
 st.title('Facial Expression Recognition')
+
 # Display text
+
 st.text('Team Members: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane Richard York, Carter Daniel Robinson')
 
 st.header('Introduction/Background')
+st.write('paragraph')
 
 st.header('Problem Definition')
 
