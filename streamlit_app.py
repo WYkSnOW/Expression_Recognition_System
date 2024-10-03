@@ -27,7 +27,9 @@ st.header('Methods')
 st.header('Results and Discussion')
 
 st.header('References')
-my_list = ["Item 1", "Item 2", "Item 3", "Item 4"]
+my_list = ["A. Huang and M. J. C. Samonte, "Using Emotion Analysis, Eye tracking, and Head Movement to Monitor Student Engagement among ESL Students with Facial Recognition Algorithm (Mediapipe)," 2024 7th International Conference on Advanced Algorithms and Control Engineering (ICAACE), Shanghai, China, 2024, pp. 509-513, doi: 10.1109/ICAACE61206.2024.10548871.", 
+           "F. M. Sadikoğlu and M. Idle Mohamed, "Facial Expression Recognition Using CNN," 2022 International Conference on Artificial Intelligence in Everything (AIE), Lefkosa, Cyprus, 2022, pp. 95-99, doi: 10.1109/AIE57029.2022.00025.", 
+           "K. Wang, R. Li, and L. Zhao, "Real-time facial expressions recognition system for service robot based-on ASM and SVMs," 2010 8th World Congress on Intelligent Control and Automation, Jinan, 2010, pp. 6637-6641, doi: 10.1109/WCICA.2010.5554164."]
 
 # Use st.write to display the list
 st.write(my_list)
