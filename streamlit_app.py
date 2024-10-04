@@ -16,9 +16,27 @@ As one of the most dynamic features of the human body, they provide critical inf
 Recognizing these expressions through machine learning has applications in areas such as human-computer interaction, research, education, and mental healthcare.
 """)
 
+st.subheader('Literature Overview')
+st.markdown("""
+- **Paper 1 (Huang & Samonte, 2024)**: Explores the use of **Google MediaPipe** to track facial key points, combined with emotion analysis and other factors like eye movement, to assess engagement.
+""")
+st.markdown("""
+- **Paper 2 (Sadikoğlu & Mohamed, 2022)**: Focuses on **Convolutional Neural Networks (CNNs)** and their ability to recognize facial expressions by extracting features from images. It highlights the advantages of CNNs and discusses the use of transfer learning.
+""")
+st.markdown("""
+- **Paper 3 (Wang, Li, & Zhao, 2010)**: Describes the use of **Active Shape Models (ASM)** and **Support Vector Machines (SVM)** for real-time recognition, emphasizing geometric features for expression recognition.
+""")
+
+st.subheader('Dataset Description')
 st.write("""
 We will use the FER-2013 dataset, which contains over 35,000 labeled images across emotion categories like anger, fear, happiness, and sadness, to implement a model that can detect expressions in real time. 
 Key tools include Google MediaPipe for extracting facial key points and Convolutional Neural Networks (CNNs) for feature extraction, along with additional machine learning algorithms to enhance accuracy and efficiency.
+""")
+
+st.subheader("Dataset Link")
+st.markdown("""
+You can access the FER-2013 dataset from the following link:
+[FER-2013 Dataset](https://www.kaggle.com/datasets/msambare/fer2013)
 """)
 
 #
