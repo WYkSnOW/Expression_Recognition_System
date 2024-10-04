@@ -79,7 +79,10 @@ st.markdown("""
 """)
 
 st.subheader('Project Goals')
-st.write('To develop a facial expression recognition model with high accuracy in real-time scenarios, ensuring robustness across varying lighting conditions and angles.')
+st.markdown("""
+The goal of the project is to develop a facial expression recognition model with high accuracy in real-time scenarios, ensuring robustness across varying lighting conditions and angles.
+An ethical consideration is to ensure that the model does not misinterpret expressions across different ethnicities or genders.
+""")
 
 st.subheader('Expected Results')
 st.write('The model will be capable of accurately detecting and classifying multiple facial expressions and providing real-time feedback in real-world applications.')
