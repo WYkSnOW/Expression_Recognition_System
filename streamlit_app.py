@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np 
 
 #
 st.title('Facial Expression Recognition System Using Machine Learning')
@@ -101,3 +102,27 @@ st.markdown("""
 2. F. M. Sadikoğlu and M. Idle Mohamed, "Facial Expression Recognition Using CNN," 2022 International Conference on Artificial Intelligence in Everything (AIE), Lefkosa, Cyprus, 2022, pp. 95-99, doi: [10.1109/AIE57029.2022.00025](https://doi.org/10.1109/AIE57029.2022.00025).
 3. K. Wang, R. Li, and L. Zhao, "Real-time facial expressions recognition system for service robot based-on ASM and SVMs," 2010 8th World Congress on Intelligent Control and Automation, Jinan, 2010, pp. 6637-6641, doi: [10.1109/WCICA.2010.5554164](https://doi.org/10.1109/WCICA.2010.5554164).
 """)
+
+data = {
+    "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
+    "Proposal Contributions": [
+"Reference finding
+Provide information
+Make slides
+Presentation", 
+"Write report
+Discuss
+Track progress & Submission
+Editing",
+"Write report 
+Streamlit
+Discuss",
+"Presentation
+Discuss",
+"Presentation
+Discuss"]
+}
+
+df = pd.DataFrame(data)
+st.title("Contribution Table")
+st.table(df)
