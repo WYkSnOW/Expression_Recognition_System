@@ -112,7 +112,7 @@ data = {
         "Presentation\nDiscuss",
         "Presentation\nDiscuss"]
 }
-
-df = pd.DataFrame(data)
+df = pd.DataFrame(data
+df = df.set_index("Name")
 st.title("Contribution Table")
-st.table(df)
+st.dataframe(df)
