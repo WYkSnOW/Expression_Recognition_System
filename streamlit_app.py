@@ -31,12 +31,8 @@ st.markdown("""
 st.subheader('Dataset Description')
 st.write("""
 We will use the FER-2013 dataset, which contains over 35,000 labeled images across emotion categories like anger, fear, happiness, and sadness, to implement a model that can detect expressions in real time. 
-Key tools include Google MediaPipe for extracting facial key points and Convolutional Neural Networks (CNNs) for feature extraction, along with additional machine learning algorithms to enhance accuracy and efficiency.
 """)
-
-st.subheader("Dataset Link")
 st.markdown("""
-You can access the FER-2013 dataset from the following link:
 [FER-2013 Dataset](https://www.kaggle.com/datasets/msambare/fer2013)
 """)
 
