@@ -14,7 +14,7 @@ st.header('Introduction/Background', divider="gray")
 st.write("""
 Facial expressions are a key aspect of human communication, conveying emotions and intentions without the need for words. 
 As one of the most dynamic features of the human body, they provide critical information about a person's emotional state [2]. 
-Recognizing these expressions thro, ugh machine learning has applications in areas such as human-computer interaction, research, education, and mental healthcare.
+Recognizing these expressions through machine learning has applications in areas such as human-computer interaction, research, and education.
 """)
 
 st.subheader('Literature Overview')
