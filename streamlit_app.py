@@ -71,6 +71,13 @@ st.markdown("""
 #
 st.header('Results and Discussion')
 
+st.subheader('Quantitative Metrics')
+st.markdown("""
+- **Accuracy**: The percentage of correctly predicted expressions out of the total number of predictions.
+- **F1-Score**: A balanced metric that combines precision and recall, providing better insight when dealing with imbalanced expression categories.
+- **Confusion Matrix**: Evaluates how well the model distinguishes between different facial expressions, helping to identify misclassifications.
+""")
+
 #
 st.header('References')
 st.markdown("""
