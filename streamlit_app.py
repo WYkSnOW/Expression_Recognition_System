@@ -16,6 +16,11 @@ As one of the most dynamic features of the human body, they provide critical inf
 Recognizing these expressions through machine learning has applications in areas such as human-computer interaction, research, education, and mental healthcare.
 """)
 
+st.write("""
+We will use the FER-2013 dataset, which contains over 35,000 labeled images across emotion categories like anger, fear, happiness, and sadness, to implement a model that can detect expressions in real time. 
+Key tools include Google MediaPipe for extracting facial key points and Convolutional Neural Networks (CNNs) for feature extraction, along with additional machine learning algorithms to enhance accuracy and efficiency.
+""")
+
 #
 st.header('Problem Definition')
 st.markdown("""
