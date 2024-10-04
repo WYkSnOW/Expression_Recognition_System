@@ -57,15 +57,22 @@ st.header('Methods')
 st.subheader('Data Preprocessing Methods')
 st.markdown("""
 1. **Facial Key Point Extraction**: Using **Google MediaPipe**, we will extract 468 facial key points from each image, capturing geometric changes that reflect subtle expressions [1].
-2. **Image Normalization**: We will standardize image pixel values to reduce the effect of lighting inconsistencies and contrast variations, ensuring uniform input for the model.
-3. **Data Augmentation**: Techniques like rotation, flipping, and cropping will be used to artificially expand the dataset and improve the model's ability to generalize across different facial angles and expressions.
+            MediaPipe is efficient for real-time key point detection and reduces the complexity of manually coding key point extraction.  
+            **Library**: MediaPipe's `face_mesh`
+2. **Image Normalization**: We will standardize image pixel values to reduce the effect of lighting inconsistencies and contrast variations, ensuring uniform input for the model.   
+            **Library**: OpenCV's `normalize` or scikit-image’s `equalize_hist`
+3. **Data Augmentation**: Techniques like rotation, flipping, and cropping will be used to artificially expand the dataset and improve the model's ability to generalize across different facial angles and expressions.  
+            **Library**:
 """)
 
 st.subheader('Machine Learning Algorithms/Models')
 st.markdown("""
-1. **Convolutional Neural Network (CNN)**: A deep learning model will be used to automatically extract features from the input images and classify expressions based on the extracted patterns [2].
-2. **Support Vector Machine (SVM)**: This model will use the facial key points extracted from MediaPipe to classify facial expressions based on geometric features [3].
-3. **Random Forest**: We will use an ensemble learning model that combines both image-based and key point-based features to improve classification accuracy. Random Forests are known for their robustness in handling complex, multi-modal datasets.
+1. **Convolutional Neural Network (CNN)**: A deep learning model will be used to automatically extract features from the input images and classify expressions based on the extracted patterns [2].  
+            **Library**: `Conv2D`
+2. **Support Vector Machine (SVM)**: This model will use the facial key points extracted from MediaPipe to classify facial expressions based on geometric features [3].  
+            **Library**: scikit-learn’s `SVC`
+3. **Random Forest**: We will use an ensemble learning model that combines both image-based and key point-based features to improve classification accuracy. Random Forests are known for their robustness in handling complex, multi-modal datasets.  
+            **Library**: scikit-learn’s `RandomForestClassifier`
 """)
 
 #
