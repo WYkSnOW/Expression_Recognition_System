@@ -9,9 +9,11 @@ st.text('By: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane R. York, and Carter D. 
 
 #
 st.header('Introduction/Background')
-st.write('Facial expressions play a crucial role in non-verbal communication, conveying emotions and intentions. '
-        'This project aims to develop a system that automatically detects and recognizes facial expressions using machine learning techniques.'
+st.write('Facial expressions are a key aspect of human communication, conveying emotions and intentions without the need for words. '
+        'As one of the most dynamic features of the human body, they provide critical information about a person's emotional state [2]. '
+        'Recognizing these expressions through machine learning has applications in areas such as human-computer interaction, research, education, and mental healthcare. '
         )
+        
 st.markdown("""
 - **Existing methods** often rely on CNNs (Convolutional Neural Networks) to process images or use facial key points to capture changes in facial geometry.
 - **Widely used** in research and everyday applications.
