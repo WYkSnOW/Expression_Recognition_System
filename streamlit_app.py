@@ -78,6 +78,10 @@ st.markdown("""
 - **Confusion Matrix**: Evaluates how well the model distinguishes between different facial expressions, helping to identify misclassifications.
 """)
 
+st.subheader('Project Goals')
+
+st.subheader('Expected Results')
+
 #
 st.header('References')
 st.markdown("""
