@@ -114,5 +114,5 @@ data = {
 }
 df = pd.DataFrame(data)
 df = df.set_index("Name")
-st.title("Contribution Table")
+st.header("Contribution Table", divider="gray")
 st.dataframe(df)
