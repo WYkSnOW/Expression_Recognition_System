@@ -9,12 +9,12 @@ st.title('Facial Expression Recognition System Using Machine Learning')
 st.text('By: Waiyuk Kwong, Zhihui Chen, Tyler Lin, Blane R. York, and Carter D. Robinson')
 
 #
-st.header('Introduction/Background')
+st.header('Introduction/Background', divider="gray")
 
 st.write("""
 Facial expressions are a key aspect of human communication, conveying emotions and intentions without the need for words. 
 As one of the most dynamic features of the human body, they provide critical information about a person's emotional state [2]. 
-Recognizing these expressions through machine learning has applications in areas such as human-computer interaction, research, education, and mental healthcare.
+Recognizing these expressions thro, ugh machine learning has applications in areas such as human-computer interaction, research, education, and mental healthcare.
 """)
 
 st.subheader('Literature Overview')
@@ -41,7 +41,7 @@ You can access the FER-2013 dataset from the following link:
 """)
 
 #
-st.header('Problem Definition')
+st.header('Problem Definition', divider="gray")
 st.markdown("""
 **Problem:**
 
@@ -53,7 +53,7 @@ st.markdown("""
 """)
 
 #
-st.header('Methods')
+st.header('Methods', divider="gray")
 
 st.subheader('Data Preprocessing Methods')
 st.markdown("""
@@ -77,7 +77,7 @@ st.markdown("""
 """)
 
 #
-st.header('Results and Discussion')
+st.header('Results and Discussion', divider="gray")
 
 st.subheader('Quantitative Metrics')
 st.markdown("""
@@ -96,7 +96,7 @@ st.subheader('Expected Results')
 st.write('The model will be capable of accurately detecting and classifying multiple facial expressions and providing real-time feedback in real-world applications.')
 
 #
-st.header('References')
+st.header('References', divider="gray")
 st.markdown("""
 1. A. Huang and M. J. C. Samonte, "Using Emotion Analysis, Eye tracking, and Head Movement to Monitor Student Engagement among ESL Students with Facial Recognition Algorithm (Mediapipe)," 2024 7th International Conference on Advanced Algorithms and Control Engineering (ICAACE), Shanghai, China, 2024, pp. 509-513, doi: [10.1109/ICAACE61206.2024.10548871](https://doi.org/10.1109/ICAACE61206.2024.10548871).
 2. F. M. Sadikoğlu and M. Idle Mohamed, "Facial Expression Recognition Using CNN," 2022 International Conference on Artificial Intelligence in Everything (AIE), Lefkosa, Cyprus, 2022, pp. 95-99, doi: [10.1109/AIE57029.2022.00025](https://doi.org/10.1109/AIE57029.2022.00025).
