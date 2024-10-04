@@ -79,8 +79,10 @@ st.markdown("""
 """)
 
 st.subheader('Project Goals')
+st.write('To develop a facial expression recognition model with high accuracy in real-time scenarios, ensuring robustness across varying lighting conditions and angles.')
 
 st.subheader('Expected Results')
+st.write('The model will be capable of accurately detecting and classifying multiple facial expressions and providing real-time feedback in real-world applications.')
 
 #
 st.header('References')
