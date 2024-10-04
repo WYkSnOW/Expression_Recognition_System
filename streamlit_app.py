@@ -106,21 +106,11 @@ st.markdown("""
 data = {
     "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
     "Proposal Contributions": [
-"Reference finding
-Provide information
-Make slides
-Presentation", 
-"Write report
-Discuss
-Track progress & Submission
-Editing",
-"Write report 
-Streamlit
-Discuss",
-"Presentation
-Discuss",
-"Presentation
-Discuss"]
+        "Reference finding\nProvide information\nMake slides\nPresentation", 
+        "Write report\nDiscuss\nTrack progress & Submission\nEditing",
+        "Write report\nStreamlit\nDiscuss",
+        "Presentation\nDiscuss",
+        "Presentation\nDiscuss"]
 }
 
 df = pd.DataFrame(data)
