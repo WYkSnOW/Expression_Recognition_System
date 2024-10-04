@@ -59,7 +59,6 @@ st.markdown("""
 2. **Image Normalization**: We will standardize image pixel values to reduce the effect of lighting inconsistencies and contrast variations, ensuring uniform input for the model.   
             **Library**: OpenCV's `normalize` or scikit-image’s `equalize_hist`
 3. **Data Augmentation**: Techniques like rotation, flipping, and cropping will be used to artificially expand the dataset and improve the model's ability to generalize across different facial angles and expressions.  
-            **Library**:
 """)
 
 st.subheader('Machine Learning Algorithms/Models')
