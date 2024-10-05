@@ -112,7 +112,7 @@ data = {
 df = pd.DataFrame(data)
 df = df.set_index("Name")
 
-st.header("Contribution Table")
+st.header("Contribution Table" = gray)
 st.dataframe(df)
 
 
