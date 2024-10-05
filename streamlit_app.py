@@ -98,20 +98,6 @@ st.markdown("""
 3. K. Wang, R. Li, and L. Zhao, "Real-time facial expressions recognition system for service robot based-on ASM and SVMs," 2010 8th World Congress on Intelligent Control and Automation, Jinan, 2010, pp. 6637-6641, doi: [10.1109/WCICA.2010.5554164](https://doi.org/10.1109/WCICA.2010.5554164).
 """)
 
-data = {
-    "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
-    "Proposal Contributions": [
-        "Reference finding\nProvide information\nMake slides\nPresentation", 
-        "Write report\nDiscuss\nTrack progress & Submission\nEditing",
-        "Write report\nStreamlit\nDiscuss",
-        "Presentation\nDiscuss",
-        "Presentation\nDiscuss"]
-}
-df = pd.DataFrame(data)
-df = df.set_index("Name")
-st.header("Contribution Table", divider="gray")
-st.dataframe(df)import streamlit as st
-import pandas as pd
 
 data = {
     "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
