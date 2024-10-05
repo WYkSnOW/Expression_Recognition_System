@@ -104,17 +104,17 @@ with st.expander('References'):
 data = {
     "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
     "Proposal Contributions": [
-        "Reference finding\nProvide information\nMake slides\nPresentation", 
-        "Write report\nDiscuss\nTrack progress & Submission\nEditing",
-        "Write report\nStreamlit\nDiscuss",
-        "Presentation\nDiscuss",
-        "Presentation\nDiscuss"]
+        "Reference finding, Provide information, Make slides, Presentation, Gantt Chart ", 
+        "Write report, Discuss, Track progress & Submission, Editing, Gantt Chart",
+        "Write report, Streamlit, Discuss, Gantt Chart",
+        "Presentation, Discuss",
+        "Presentation, Discuss"]
 }
 
 df = pd.DataFrame(data)
 df = df.set_index("Name")
-st.header("Contribution Table")
-st.table(df)
+st.title("Contribution Table")
+st.dataframe(df)
 
 
 st.header("Gantt Chart", divider="gray")
