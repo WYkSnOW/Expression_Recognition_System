@@ -104,7 +104,7 @@ with st.expander('References'):
 data = {
     "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
     "Proposal Contributions": [
-        "Research & Reference finding, Slide Deck, Video Record & Editing, Gantt Chart,  ", 
+        "Research & Reference finding,  Slide Deck, Video Record & Editing, Gantt Chart ", 
         "Write report, Streamlit, Track progress & Submission, Gantt Chart",
         "Write report, Streamlit, Gantt Chart",
         "Video Record",
