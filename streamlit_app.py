@@ -111,3 +111,5 @@ df = pd.DataFrame(data)
 df = df.set_index("Name")
 st.header("Contribution Table", divider="gray")
 st.dataframe(df)
+
+st.image("Gantt.jpg", caption="Gantt Chart")
