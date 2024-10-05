@@ -113,9 +113,8 @@ data = {
 
 df = pd.DataFrame(data)
 df = df.set_index("Name")
-
-st.header("Contribution Table", divider="gray")
-st.dataframe(df)
+st.header("Contribution Table")
+st.table(df)
 
 
 st.header("Gantt Chart", divider="gray")
