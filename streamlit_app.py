@@ -110,6 +110,28 @@ data = {
 df = pd.DataFrame(data)
 df = df.set_index("Name")
 st.header("Contribution Table", divider="gray")
+st.dataframe(df)import streamlit as st
+import pandas as pd
+
+data = {
+    "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
+    "Proposal Contributions": [
+        "Reference finding\nProvide information\nMake slides\nPresentation", 
+        "Write report\nDiscuss\nTrack progress & Submission\nEditing",
+        "Write report\nStreamlit\nDiscuss",
+        "Presentation\nDiscuss",
+        "Presentation\nDiscuss"]
+}
+
+df = pd.DataFrame(data)
+df = df.set_index("Name")
+
+st.header("Contribution Table")
 st.dataframe(df)
 
+
+st.header("Gantt Chart", divider="gray")
 st.image("Gantt.jpg", caption="Gantt Chart")
+st.markdown("""
+[Gantt Chart](https://docs.google.com/spreadsheets/d/16sWj1XushsbAo5WwqrAq6MPuiGra0VFZrKK61rONgeo/edit?usp=sharing)
+""")
