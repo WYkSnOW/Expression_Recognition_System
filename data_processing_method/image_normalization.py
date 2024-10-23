@@ -9,7 +9,7 @@ def normalize_image(img):
 
 def main():
     # 读取图像文件
-    img = cv2.imread("archive/train/angry/Training_3908.jpg")
+    img = cv2.imread("../archive/train/angry/Training_3908.jpg")
 
     # 归一化图像
     normalized_img = normalize_image(img)

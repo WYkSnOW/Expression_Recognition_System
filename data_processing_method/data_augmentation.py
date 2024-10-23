@@ -24,7 +24,7 @@ def augment_image(img):
 
 def main():
     # 读取图像文件
-    img = cv2.imread("archive/train/angry/Training_3908.jpg")
+    img = cv2.imread("../archive/train/angry/Training_3908.jpg")
 
     # 增强图像
     augmented_img = augment_image(img)

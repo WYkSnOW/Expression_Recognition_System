@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
-from DataAugmentation import augment_image  # 导入数据增强方法
-from ImageNormalization import normalize_image  # 导入图像归一化方法
-from FaceMeshModule import FaceMeshDetector  # 导入面部关键点检测类
+from data_processing_method.data_augmentation import augment_image  # 导入数据增强方法
+from data_processing_method.image_normalization import normalize_image  # 导入图像归一化方法
+from data_processing_method.face_mesh_module import FaceMeshDetector  # 导入面部关键点检测类
 
 
 def process_image(img_path):

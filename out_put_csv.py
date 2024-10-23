@@ -1,0 +1,41 @@
+import os
+import cv2
+import csv
+from image_processing_pipeline import process_image  # 使用封装的图像处理函数
+
+def create_csv_if_not_exists(output_csv):
+    if not os.path.exists(output_csv):
+        with open(output_csv, 'w', newline='') as file:
+            writer = csv.writer(file)
+            # 创建标题：第一个是标签，其余是关键点坐标 (468个关键点，每个2个坐标 x, y)
+            header = ['label'] + [f'x{i}' for i in range(468)] + [f'y{i}' for i in range(468)]
+            writer.writerow(header)
+
+
+def save_keypoints_to_csv(faces, label, output_csv):
+    flat_keypoints = [coord for face in faces for point in face for coord in point]
+    data_row = [label] + flat_keypoints
+    with open(output_csv, 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(data_row)
+
+
+def process_dataset(dataset_path, output_csv):
+    create_csv_if_not_exists(output_csv)
+    for root, dirs, files in os.walk(dataset_path):
+        for file in files:
+            if file.endswith(".jpg"):
+                label = os.path.basename(root)  # 文件夹名就是label
+                img_path = os.path.join(root, file)  # 构建图片的完整路径
+
+                # 调用 imageProcessingPipeline 里的 process_image
+                img, faces = process_image(img_path)  # 处理图像并提取关键点
+                if faces:
+                    save_keypoints_to_csv(faces, label, output_csv)
+                print(f"已处理: {img_path}")
+
+
+if __name__ == "__main__":
+    dataset_path = "archive/train"
+    output_csv = "face_keypoints.csv"
+    process_dataset(dataset_path, output_csv)
