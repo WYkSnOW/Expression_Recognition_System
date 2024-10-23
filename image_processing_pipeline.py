@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import gc  # 导入垃圾回收模块
 from data_processing_method.data_augmentation import augment_image  # 导入数据增强方法
 from data_processing_method.image_normalization import normalize_image  # 导入图像归一化方法
 from data_processing_method.face_mesh_module import FaceMeshDetector  # 导入面部关键点检测类
@@ -12,7 +13,7 @@ def process_image(img_path):
     # 检查图像是否成功加载
     if img is None:
         print(f"无法加载图像: {img_path}")
-        return None
+        return None, None
 
     # 2. 图像归一化
     normalized_img = normalize_image(img)
@@ -32,6 +33,10 @@ def process_image(img_path):
     img_resized = (img_resized * 255).astype('uint8')
     final_img, faces = detector.find_face_mesh(img_resized, draw=True)
 
+    # 处理完成后释放不再需要的内存
+    del img, normalized_img, augmented_img
+    gc.collect()  # 调用垃圾回收释放内存
+
     # 返回最终处理的图像
     return final_img, faces
 
@@ -41,9 +46,10 @@ def main():
     img_path = "archive/train/angry/Training_3908.jpg"  # 请根据需要调整图片路径
     img, faces = process_image(img_path)
     print(faces)
-    cv2.imshow("Processed Image", img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    if img is not None:
+        cv2.imshow("Processed Image", img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
