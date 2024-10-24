@@ -16,25 +16,25 @@ def process_image(img_path):
         return None, None
 
     # 2. 图像归一化
-    normalized_img = normalize_image(img)
+    img = normalize_image(img)
 
     # 确保归一化后的图像在 [0, 1] 范围内
-    normalized_img = np.clip(normalized_img, 0, 1)
+    img = np.clip(img, 0, 1)
 
     # 3. 图像增强
-    augmented_img = augment_image(normalized_img)
+    img = augment_image(img)
 
     # 确保增强后的图像在 [0, 1] 范围内
-    augmented_img = np.clip(augmented_img, 0, 1)
+    img = np.clip(img, 0, 1)
 
     # 4. 面部关键点提取
     detector = FaceMeshDetector()
-    img_resized = cv2.resize(augmented_img, (256, 256))  # 调整大小以便MediaPipe处理
-    img_resized = (img_resized * 255).astype('uint8')
-    final_img, faces = detector.find_face_mesh(img_resized, draw=True)
+    img = cv2.resize(img, (256, 256))  # 调整大小以便MediaPipe处理
+    img = (img * 255).astype('uint8')
+    final_img, faces = detector.find_face_mesh(img, draw=True)
 
     # 处理完成后释放不再需要的内存
-    del img, normalized_img, augmented_img
+    del img
     gc.collect()  # 调用垃圾回收释放内存
 
     # 返回最终处理的图像
