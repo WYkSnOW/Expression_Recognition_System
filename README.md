@@ -1,4 +1,3 @@
-# Machine Learning Team 98
 ## Facial Expression Recognition System Using Machine Learning
 
 ### By:
