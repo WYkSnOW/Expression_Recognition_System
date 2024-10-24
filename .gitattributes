@@ -1,0 +1,5 @@
+face_keypoints.csv filter=lfs diff=lfs merge=lfs -text
+ml_model/rf_model.pkl filter=lfs diff=lfs merge=lfs -text
+ml_model/svm_model.pkl filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+*.pkl filter=lfs diff=lfs merge=lfs -text
