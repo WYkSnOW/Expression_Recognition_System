@@ -118,7 +118,7 @@ st.dataframe(df)
 
 
 st.header("Gantt Chart", divider="gray")
-st.image("Gantt.jpg", caption="Gantt Chart")
+st.image("streamlit/Gantt.jpg", caption="Gantt Chart")
 st.markdown("""
 [Gantt Chart](https://docs.google.com/spreadsheets/d/16sWj1XushsbAo5WwqrAq6MPuiGra0VFZrKK61rONgeo/edit?usp=sharing)
 """)
