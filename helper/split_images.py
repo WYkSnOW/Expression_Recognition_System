@@ -29,8 +29,8 @@ def split_images_into_folders(source_folder, destination_folder, images_per_fold
         print(f'Created folder {new_folder} with {end_idx - start_idx} images.')
 
 if __name__ == "__main__":
-    source_folder = 'archive/train/surprise'  # 原图片所在文件夹
-    destination_folder = 'archive/train/'  # 新文件夹的目标路径
+    source_folder = 'archive/test/surprise'  # 原图片所在文件夹
+    destination_folder = 'archive/test/surprise'  # 新文件夹的目标路径
     images_per_folder = 1500  # 每个文件夹包含的图片数量
     
     split_images_into_folders(source_folder, destination_folder, images_per_folder)

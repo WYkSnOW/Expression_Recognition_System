@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
 import gc  # 导入垃圾回收模块
-from data_processing_method.data_augmentation import augment_image  # 导入数据增强方法
-from data_processing_method.image_normalization import normalize_image  # 导入图像归一化方法
-from data_processing_method.face_mesh_module import FaceMeshDetector  # 导入面部关键点检测类
+from data_augmentation import augment_image  # 导入数据增强方法
+from image_normalization import normalize_image  # 导入图像归一化方法
+from face_mesh_module import FaceMeshDetector  # 导入面部关键点检测类
 
 
 def process_image(img_path):
@@ -43,7 +43,7 @@ def process_image(img_path):
 
 def main():
     # 图片路径
-    img_path = "archive/train/angry/Training_3908.jpg"  # 请根据需要调整图片路径
+    img_path = "archive/train/angry/angry1/Training_3908.jpg"  # 请根据需要调整图片路径
     img, faces = process_image(img_path)
     print(faces)
     if img is not None:
