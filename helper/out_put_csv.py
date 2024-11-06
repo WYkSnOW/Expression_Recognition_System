@@ -2,7 +2,8 @@ import os
 import cv2
 import csv
 import gc  # 导入垃圾回收模块
-from image_processing_pipeline import process_image
+from data_processing_method.image_processing_pipeline import process_image
+
 import re  # 导入正则表达式库，用于去除文件夹名称中的数字
 
 def create_csv_if_not_exists(output_csv):
@@ -52,5 +53,5 @@ def process_batch(batch, output_csv):
 
 if __name__ == "__main__":
     dataset_path = "archive/test/surprise/surprise1"
-    output_csv = "face_keypoints_test.csv"
+    output_csv = "face_keypoints_test1.csv"
     process_dataset(dataset_path, output_csv, batch_size=5, max_images=1500)  # 每次处理1500张图片

@@ -61,7 +61,7 @@ if __name__ == "__main__":
     csv_file = "face_keypoints.csv"
     
     # 模型保存路径
-    model_output_path = "rf_model.pkl"
+    model_output_path = "ml_model/rf_model.pkl"
     
     # 加载数据
     features, labels, label_encoder = load_data(csv_file)

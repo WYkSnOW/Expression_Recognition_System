@@ -69,7 +69,7 @@ def save_model(model, model_filename):
 
 def main():
     csv_file = "face_keypoints.csv"
-    model_filename = "svm_model.pkl"
+    model_filename = "ml_model/svm_model.pkl"
 
     X, y, label_encoder, scaler = load_data(csv_file)
 
@@ -84,10 +84,10 @@ def main():
 
     save_model(svm_model, model_filename)
 
-    joblib.dump(label_encoder, 'label_encoder.pkl')
-    joblib.dump(scaler, 'scaler.pkl')
-    print("标签编码器已保存到 label_encoder.pkl")
-    print("标准化器已保存到 scaler.pkl")
+    joblib.dump(label_encoder, 'ml_model/label_encoder.pkl')
+    joblib.dump(scaler, 'ml_model/scaler.pkl')
+    print("标签编码器已保存到 'ml_model/scaler.pkl")
+    print("标准化器已保存到 ml_model/scaler.pkl")
 
 if __name__ == "__main__":
     main()
