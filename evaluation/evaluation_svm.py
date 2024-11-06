@@ -3,24 +3,27 @@ import pandas as pd
 import numpy as np
 import joblib
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
+from sklearn.model_selection import cross_val_score
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# 尝试使用Python引擎读取CSV，并跳过坏行
+# Read CSV file using Python engine, skipping bad lines
 data = pd.read_csv('face_keypoints_test.csv', engine='python', on_bad_lines='skip')
 
-# 检查数据是否正确读取
-print(f'数据共有 {data.shape[0]} 行和 {data.shape[1]} 列')
+# Display basic data info
+print(f'Dataset contains {data.shape[0]} rows and {data.shape[1]} columns')
 print(data.head())
 
-# 检查是否存在缺失值
+# Check for missing values and handle them
 if data.isnull().values.any():
-    print("数据中存在缺失值，进行处理...")
-    data = data.dropna()  # 或者选择填充缺失值，如 data.fillna(method='ffill')
+    print("Missing values detected, handling...")
+    data = data.dropna()  # Or use data.fillna(method='ffill')
 
-# 提取标签和特征
+# Extract labels and features
 y_true = data['label']
-X = data.drop('label', axis=1).values  # 转换为 numpy 数组
+X = data.drop('label', axis=1).values  # Convert to numpy array
 
-# 加载模型、标签编码器和标准化器
+# Load model, label encoder, and scaler
 label_encoder_path = os.path.join('ml_model', 'label_encoder.pkl')
 svm_model_path = os.path.join('ml_model', 'svm_model.pkl')
 scaler_path = os.path.join('ml_model', 'scaler.pkl')
@@ -29,24 +32,54 @@ label_encoder = joblib.load(label_encoder_path)
 svm_model = joblib.load(svm_model_path)
 scaler = joblib.load(scaler_path)
 
-# 对真实标签进行编码
+# Encode true labels
 y_true_encoded = label_encoder.transform(y_true)
 
-# 对特征进行标准化
+# Scale features
 X_scaled = scaler.transform(X)
 
-# 使用模型进行预测
+# Predict results
 y_pred_encoded = svm_model.predict(X_scaled)
 
-# 计算准确率
+# Calculate accuracy and F1 Score
 accuracy = accuracy_score(y_true_encoded, y_pred_encoded)
-print(f'模型预测的准确率为: {accuracy*100:.2f}%')
+print(f'Model Accuracy: {accuracy*100:.2f}%')
 
-# 计算 F1 Score
-f1 = f1_score(y_true_encoded, y_pred_encoded, average='weighted')  # 'weighted' 适用于不平衡数据集
+f1 = f1_score(y_true_encoded, y_pred_encoded, average='weighted')
 print(f'F1 Score: {f1:.2f}')
 
-# 计算混淆矩阵
+# Confusion Matrix
 conf_matrix = confusion_matrix(y_true_encoded, y_pred_encoded)
 print("Confusion Matrix:")
 print(conf_matrix)
+
+# Plot confusion matrix heatmap
+plt.figure(figsize=(10, 8))
+sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=label_encoder.classes_, yticklabels=label_encoder.classes_)
+plt.xlabel("Predicted Labels")
+plt.ylabel("True Labels")
+plt.title("Confusion Matrix")
+plt.show()
+
+# Cross-Validation Accuracy Plot
+cv_scores = cross_val_score(svm_model, X_scaled, y_true_encoded, cv=5, scoring='accuracy')
+
+plt.figure()
+plt.plot(range(1, 6), cv_scores, marker='o')
+plt.xlabel('Cross-Validation Fold')
+plt.ylabel('Accuracy')
+plt.title('Cross-Validation Accuracy of SVM Model')
+plt.show()
+
+# Data Exploration: Class Distribution
+plt.figure()
+sns.countplot(x=y_true)
+plt.xlabel('Class')
+plt.ylabel('Count')
+plt.title('Class Distribution')
+plt.show()
+
+# Data Exploration: Pair Plot of Features (First 5 Keypoints)
+sns.pairplot(data.iloc[:, :5])
+plt.suptitle('Pair Plot of First 5 Keypoints', y=1.02)
+plt.show()
