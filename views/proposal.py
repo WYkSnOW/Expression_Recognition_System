@@ -65,11 +65,11 @@ st.markdown("""
 st.subheader('Machine Learning Algorithms/Models')
 st.markdown("""
 1. **Random Forest**: We will use an ensemble learning model that combines both image-based and key point-based features to improve classification accuracy. Random Forests are known for their robustness in handling complex, multi-modal datasets.  
-            **Library**: scikit-learn’s `RandomForestClassifier`
+            **Library**: `pandas` `scikit_learn` `joblib`
 2. **Support Vector Machine (SVM)**: This model will use the facial key points extracted from MediaPipe to classify facial expressions based on geometric features [3].  
-            **Library**: scikit-learn’s `SVC`
+            **Library**: `pandas` `scikit_learn` `joblib`
 3. **Convolutional Neural Network (CNN)**: A deep learning model will be used to automatically extract features from the input images and classify expressions based on the extracted patterns [2].  
-            **Library**: `Conv2D`
+            **Library**: `torch` `torchh.nn` `torch.optim` `torchvision.datasets` `torchvision.transforms`
 """)
 
 #

@@ -56,40 +56,43 @@ st.subheader('Data Preprocessing Methods')
 st.markdown("""
 1. **Facial Key Point Extraction**: Using **Google MediaPipe**, we will extract 468 facial key points from each image, capturing geometric changes that reflect subtle expressions [1].
             MediaPipe is efficient for real-time key point detection and reduces the complexity of manually coding key point extraction.  
-            **Library**: MediaPipe's `face_mesh`
+            **Library**: `mediapipe`
 2. **Image Normalization**: We will standardize image pixel values to reduce the effect of lighting inconsistencies and contrast variations, ensuring uniform input for the model.   
-            **Library**: OpenCV's `normalize`
+            **Library**: `cv2`
 3. **Data Augmentation**: Techniques like rotation, flipping, and cropping will be used to artificially expand the dataset and improve the model's ability to generalize across different facial angles and expressions.  
+            **Library**: `cv2` `numpy`
 """)
 
 st.subheader('Machine Learning Algorithms/Models')
 st.markdown("""
-1. **Random Forest**: We will use an ensemble learning model that combines both image-based and key point-based features to improve classification accuracy. Random Forests are known for their robustness in handling complex, multi-modal datasets.  
-            **Library**: scikit-learn’s `RandomForestClassifier`
-2. **Support Vector Machine (SVM)**: This model will use the facial key points extracted from MediaPipe to classify facial expressions based on geometric features [3].  
-            **Library**: scikit-learn’s `SVC`
-3. **Convolutional Neural Network (CNN)**: A deep learning model will be used to automatically extract features from the input images and classify expressions based on the extracted patterns [2].  
-            **Library**: `Conv2D`
+1. **Random Forest**: Random Forest will classify facial expressions based on geometric features from facial key points, providing a reliable model that’s interpretable and relatively fast to train and evaluate.
+2. **Support Vector Machine (SVM)**: SVM will use facial landmark coordinates as input to classify expressions based on geometric differences (e.g., the distance between eyes, mouth shape), achieving high precision on complex expressions by focusing on distinct boundaries  
+3. **Convolutional Neural Network (CNN)**: The CNN will classify facial expressions directly from images, leveraging deep layers to capture subtle visual cues and patterns that are indicative of different expressions. The CNN can generalize well, even on diverse and complex datasets.
 """)
 
 #
 st.header('Results and Discussion', divider="gray")
 
-st.subheader('Quantitative Metrics')
+st.subheader('Random Forest Model')
 st.markdown("""
-- **Accuracy**: The percentage of correctly predicted expressions out of the total number of predictions.
-- **F1-Score**: A balanced metric that combines precision and recall, providing better insight when dealing with imbalanced expression categories.
-- **Confusion Matrix**: Evaluates how well the model distinguishes between different facial expressions, helping to identify misclassifications.
+- **Accuracy**: 40.07%
+- **F1-Score**: 0.37
+- **Confusion Matrix**: 
 """)
 
-st.subheader('Project Goals')
+st.subheader('Support Vector Machine (SVM)')
 st.markdown("""
-The goal of the project is to develop a facial expression recognition model with high accuracy in real-time scenarios, ensuring robustness across varying lighting conditions and angles.
-An ethical consideration is to ensure that the model does not misinterpret expressions across different ethnicities or genders.
+- **Accuracy**: 50.28%
+- **F1-Score**: 0.48
+- **Confusion Matrix**: 
 """)
 
-st.subheader('Expected Results')
-st.write('The model will be capable of accurately detecting and classifying multiple facial expressions and providing real-time feedback in real-world applications.')
+st.subheader('Convolutional Neural Network (CNN)')
+st.markdown("""
+- **Accuracy**:  64.29%
+- **F1-Score**: 0.6378
+- **Confusion Matrix**: 
+""")
 
 #
 st.header('References', divider="gray")
