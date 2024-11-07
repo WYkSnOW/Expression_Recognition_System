@@ -97,6 +97,8 @@ st.markdown("""
 """)
 st.image("streamlit/cnn_confusion_matrix.jpg", caption="CNN Confusion Matrix")
 
+st.subheader('Next Steps')
+
 #
 st.header('References', divider="gray")
 with st.expander('References'):
