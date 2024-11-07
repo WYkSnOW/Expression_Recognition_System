@@ -79,6 +79,7 @@ st.markdown("""
 - **F1-Score**: 0.37
 - **Confusion Matrix**: 
 """)
+st.image("streamlit/rf_confusion_matrix.jpg", caption="Random Forest Confusion Matrix")
 
 st.subheader('Support Vector Machine (SVM)')
 st.markdown("""
@@ -86,6 +87,7 @@ st.markdown("""
 - **F1-Score**: 0.48
 - **Confusion Matrix**: 
 """)
+st.image("streamlit/svm_confusion_matrix.jpg", caption="SVM Confusion Matrix")
 
 st.subheader('Convolutional Neural Network (CNN)')
 st.markdown("""
@@ -93,8 +95,7 @@ st.markdown("""
 - **F1-Score**: 0.6378
 - **Confusion Matrix**: 
 """)
-
-st.subheader('Next Steps')
+st.image("streamlit/cnn_confusion_matrix.jpg", caption="CNN Confusion Matrix")
 
 #
 st.header('References', divider="gray")
