@@ -94,6 +94,8 @@ st.markdown("""
 - **Confusion Matrix**: 
 """)
 
+st.subheader('Next Steps')
+
 #
 st.header('References', divider="gray")
 with st.expander('References'):
