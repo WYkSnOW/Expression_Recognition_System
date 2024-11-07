@@ -3,12 +3,13 @@ import streamlit as st
 proposal_page = st.Page(
     page="views/proposal.py",
     title="Proposal",
-    default=True,
 )
 midterm_page = st.Page(
     page="views/midterm_report.py",
     title="Midterm Report",
+    default=True
 )
+
 final_page = st.Page(
     page="views/final_report.py",
     title="Final Report",
