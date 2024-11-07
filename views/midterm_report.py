@@ -66,7 +66,7 @@ st.markdown("""
 st.subheader('Machine Learning Algorithms/Models')
 st.markdown("""
 1. **Random Forest**: Random Forest will classify facial expressions based on geometric features from facial key points, providing a reliable model that’s interpretable and relatively fast to train and evaluate.
-2. **Support Vector Machine (SVM)**: SVM will use facial landmark coordinates as input to classify expressions based on geometric differences (e.g., the distance between eyes, mouth shape), achieving high precision on complex expressions by focusing on distinct boundaries  
+2. **Support Vector Machine (SVM)**: SVM will use facial landmark coordinates as input to classify expressions based on geometric differences, achieving high precision on complex expressions by focusing on distinct boundaries  
 3. **Convolutional Neural Network (CNN)**: The CNN will classify facial expressions directly from images, leveraging deep layers to capture subtle visual cues and patterns that are indicative of different expressions. The CNN can generalize well, even on diverse and complex datasets.
 """)
 
@@ -99,11 +99,11 @@ st.image("streamlit/cnn_confusion_matrix.jpg", caption="CNN Confusion Matrix")
 
 st.subheader('Analysis')
 st.write("""
-Of the three models, the CNN demonstrates the strongest performance, obtaining the highest accuracy and F1-score, while the Random Forest and SVM models show weaker results.
+Of the three models, the CNN model demonstrates the strongest performance, obtaining the highest accuracy and F1-score, while the Random Forest and SVM models show weaker results.
 A key issue across all models is the significant misclassification of certain emotions. This may be due to that fact that emotions such as fear, disgust, and angry share similar features.  Another factor that may cause the misclassification is 
 the imbalance in classes. Some emotions such as happy has a larger dataset than disgust. This imbalance may lead to bias towards the majority class,
 making it harder for the models to accurately predict minority classes. 
-Additionally, the 48x48 pixel size of the images may have limited the model's ability to capture fine details, reducing accuracy by constraining the amount of available visual information that could aid in differentiating similar emotions.
+Additionally, the 48x48 pixel size of the images may have limited the model's ability to capture fine details, constraining the amount of available visual information that could differentiate similar emotions.
 """)
 
 st.subheader('Next Steps')
@@ -135,11 +135,11 @@ data = {
 
 df = pd.DataFrame(data)
 df = df.set_index("Name")
-st.title("Contribution Table")
+st.subheader("Contribution Table")
 st.dataframe(df)
 
 
-st.header("Gantt Chart", divider="gray")
+st.subheader("Gantt Chart", divider="gray")
 st.image("streamlit/Gantt.jpg", caption="Gantt Chart")
 st.markdown("""
 [Gantt Chart](https://docs.google.com/spreadsheets/d/16sWj1XushsbAo5WwqrAq6MPuiGra0VFZrKK61rONgeo/edit?usp=sharing)
