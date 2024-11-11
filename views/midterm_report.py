@@ -81,6 +81,19 @@ st.markdown("""
 """)
 st.image("streamlit/rf_confusion_matrix.jpg", caption="Random Forest Confusion Matrix")
 
+st.markdown("""
+- **Cross-Validation Accuracy**: 
+""")
+st.image("streamlit/rf_cross_validation.jpg", caption="Cross-Validation Accuracy for Random Forest Model")
+st.markdown("""
+- **Class Distribution**: 
+""")
+st.image("streamlit/rf_class_distribution.jpg", caption="Class Distribution for Random Forest Model")
+st.markdown("""
+- **Pairplot**: 
+""")
+st.image("streamlit/rf_pairplot.jpg", caption="Pairplot for Random Forest Model")
+
 st.subheader('Support Vector Machine (SVM)')
 st.markdown("""
 - **Accuracy**: 50.28%
@@ -89,6 +102,19 @@ st.markdown("""
 """)
 st.image("streamlit/svm_confusion_matrix.jpg", caption="SVM Confusion Matrix")
 
+st.markdown("""
+- **Cross-Validation Accuracy**: 
+""")
+st.image("streamlit/svm_cross_validation.jpg", caption="Cross-Validation Accuracy for SVM")
+st.markdown("""
+- **Class Distribution**: 
+""")
+st.image("streamlit/svm_class_distribution.jpg", caption="Class Distribution for SVM")
+st.markdown("""
+- **Pairplot**: 
+""")
+st.image("streamlit/svm_pairplot.jpg", caption="Pairplot for SVM")
+
 st.subheader('Convolutional Neural Network (CNN)')
 st.markdown("""
 - **Accuracy**:  64.29%
@@ -96,6 +122,15 @@ st.markdown("""
 - **Confusion Matrix**: 
 """)
 st.image("streamlit/cnn_confusion_matrix.jpg", caption="CNN Confusion Matrix")
+
+st.markdown("""
+- **Training and Validation Accuracy**: 
+""")
+st.image("streamlit/cnn_train_validation_accuracy.jpg", caption="Training and Validation Accuracy for CNN")
+st.markdown("""
+- **Training and Validation Loss**: 
+""")
+st.image("streamlit/cnn_train_validation_loss.jpg", caption="Training and Validation Loss for CNN")
 
 st.subheader('Analysis')
 st.write("""
