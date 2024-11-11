@@ -96,7 +96,7 @@ st.image("streamlit/rf_pairplot.jpg", caption="Pairplot for Random Forest Model"
 
 st.subheader('Random Forest Analysis')
 st.write("""
-The Random Forest Model shows suboptimal performace with an accuracy of 40.07% and F1-Score of 0.37.
+The Random Forest Model shows suboptimal performace with an accuracy of 40.07% and a F1-Score of 0.37.
 This indicates that the model struggles in generalization and class prediction. The confusion matrix shows that the model
 significantly misclassifies, especially in underrepresented classes like digust. The class distribution shows a severe imbalance
 with the disgust class having far fewer samples than classes like happy; this is likely skewing the model's predictions. 
@@ -126,7 +126,10 @@ st.image("streamlit/svm_pairplot.jpg", caption="Pairplot for SVM")
 
 st.subheader('Support Vector Machine Analysis')
 st.write("""
-The Support Vector Machine Model shows
+The Support Vector Machine Model shows a moderate improvement over the Random Forest Model with an accuracy of 50.28% and F1-score of 0.48.
+Althought the model may have improved in generalization, the confusion matrix shows that it still significantly misclassifies underrepresented classes such as digust.
+There is a high accuracy for the happy class but there is a strong misclassification in emotions such as fear, sad, and neutral. 
+The cross validation accruacy shows variability across folds with a high above 50% and a low around 48%, showing that it is sensitive to specific data split.
 """)
 
 st.subheader('Convolutional Neural Network (CNN)')
