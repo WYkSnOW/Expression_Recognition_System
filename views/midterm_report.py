@@ -81,6 +81,24 @@ st.markdown("""
 """)
 st.image("streamlit/rf_confusion_matrix.jpg", caption="Random Forest Confusion Matrix")
 
+st.markdown("""
+- **Cross-Validation Accuracy**: 
+""")
+st.image("streamlit/rf_cross_validation.jpg", caption="Cross-Validation Accuracy for Random Forest Model")
+st.markdown("""
+- **Class Distribution**: 
+""")
+st.image("streamlit/rf_class_distribution.jpg", caption="Class Distribution for Random Forest Model")
+
+st.subheader('Random Forest Analysis')
+st.write("""
+The Random Forest Model shows suboptimal performace with an accuracy of 40.07% and a F1-Score of 0.37.
+This indicates that the model struggles in generalization and class prediction. The confusion matrix shows that the model
+significantly misclassifies, especially in underrepresented classes like digust. The class distribution shows a severe imbalance
+with the disgust class having far fewer samples than classes like happy; this is likely skewing the model's predictions. 
+The cross validation accuracy within the range of 33% to 38% shows that the model's performance on unseen data is low and it struggles in generalization.
+""")
+
 st.subheader('Support Vector Machine (SVM)')
 st.markdown("""
 - **Accuracy**: 50.28%
@@ -88,6 +106,24 @@ st.markdown("""
 - **Confusion Matrix**: 
 """)
 st.image("streamlit/svm_confusion_matrix.jpg", caption="SVM Confusion Matrix")
+
+st.markdown("""
+- **Cross-Validation Accuracy**: 
+""")
+st.image("streamlit/svm_cross_validation.jpg", caption="Cross-Validation Accuracy for SVM")
+st.markdown("""
+- **Class Distribution**: 
+""")
+st.image("streamlit/svm_class_distribution.jpg", caption="Class Distribution for SVM")
+
+
+st.subheader('Support Vector Machine Analysis')
+st.write("""
+The Support Vector Machine Model shows a moderate improvement over the Random Forest Model with an accuracy of 50.28% and F1-score of 0.48.
+Althought the model may have improved in generalization, the confusion matrix shows that it still significantly misclassifies underrepresented classes such as digust.
+There is a high accuracy for the happy class but there is a strong misclassification in emotions such as fear, sad, and neutral. 
+The cross validation accruacy shows variability across folds with a high above 50% and a low around 48%, showing that it is sensitive to specific data split.
+""")
 
 st.subheader('Convolutional Neural Network (CNN)')
 st.markdown("""
@@ -97,7 +133,22 @@ st.markdown("""
 """)
 st.image("streamlit/cnn_confusion_matrix.jpg", caption="CNN Confusion Matrix")
 
-st.subheader('Analysis')
+st.markdown("""
+- **Training and Validation Accuracy**: 
+""")
+st.image("streamlit/cnn_train_validation_accuracy.jpg", caption="Training and Validation Accuracy for CNN")
+st.markdown("""
+- **Training and Validation Loss**: 
+""")
+st.image("streamlit/cnn_train_validation_loss.jpg", caption="Training and Validation Loss for CNN")
+
+
+st.subheader('Convolutional Neural Network Analysis')
+st.write("""
+The Convolutional Neural Network Model shows
+""")
+
+st.subheader('Overall Analysis')
 st.write("""
 Of the three models, the CNN model demonstrates the strongest performance, obtaining the highest accuracy and F1-score, while the Random Forest and SVM models show weaker results.
 A key issue across all models is the significant misclassification of certain emotions. This may be due to that fact that emotions such as fear, disgust, and angry share similar features.  Another factor that may cause the misclassification is 
