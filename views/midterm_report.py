@@ -94,6 +94,15 @@ st.markdown("""
 """)
 st.image("streamlit/rf_pairplot.jpg", caption="Pairplot for Random Forest Model")
 
+st.subheader('Random Forest Analysis')
+st.write("""
+The Random Forest Model shows suboptimal performace with an accuracy of 40.07% and F1-Score of 0.37.
+This indicates that the model struggles in generalization and class prediction. The confusion matrix shows that the model
+significantly misclassifies, especially in underrepresented classes like digust. The class distribution shows a severe imbalance
+with the disgust class having far fewer samples than classes like happy; this is likely skewing the model's predictions. 
+The cross validation accuracy within the range of 33% to 38% shows that the model's performance on unseen data is low and it struggles in generalization.
+""")
+
 st.subheader('Support Vector Machine (SVM)')
 st.markdown("""
 - **Accuracy**: 50.28%
@@ -115,6 +124,11 @@ st.markdown("""
 """)
 st.image("streamlit/svm_pairplot.jpg", caption="Pairplot for SVM")
 
+st.subheader('Support Vector Machine Analysis')
+st.write("""
+The Support Vector Machine Model shows
+""")
+
 st.subheader('Convolutional Neural Network (CNN)')
 st.markdown("""
 - **Accuracy**:  64.29%
@@ -132,7 +146,13 @@ st.markdown("""
 """)
 st.image("streamlit/cnn_train_validation_loss.jpg", caption="Training and Validation Loss for CNN")
 
-st.subheader('Analysis')
+
+st.subheader('Convolutional Neural Network Analysis')
+st.write("""
+The Convolutional Neural Network Model shows
+""")
+
+st.subheader('Overall Analysis')
 st.write("""
 Of the three models, the CNN model demonstrates the strongest performance, obtaining the highest accuracy and F1-score, while the Random Forest and SVM models show weaker results.
 A key issue across all models is the significant misclassification of certain emotions. This may be due to that fact that emotions such as fear, disgust, and angry share similar features.  Another factor that may cause the misclassification is 
