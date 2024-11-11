@@ -89,10 +89,6 @@ st.markdown("""
 - **Class Distribution**: 
 """)
 st.image("streamlit/rf_class_distribution.jpg", caption="Class Distribution for Random Forest Model")
-st.markdown("""
-- **Pairplot**: 
-""")
-st.image("streamlit/rf_pairplot.jpg", caption="Pairplot for Random Forest Model")
 
 st.subheader('Random Forest Analysis')
 st.write("""
@@ -119,10 +115,7 @@ st.markdown("""
 - **Class Distribution**: 
 """)
 st.image("streamlit/svm_class_distribution.jpg", caption="Class Distribution for SVM")
-st.markdown("""
-- **Pairplot**: 
-""")
-st.image("streamlit/svm_pairplot.jpg", caption="Pairplot for SVM")
+
 
 st.subheader('Support Vector Machine Analysis')
 st.write("""
