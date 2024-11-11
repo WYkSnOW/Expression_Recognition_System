@@ -177,11 +177,11 @@ with st.expander('References'):
 data = {
     "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
     "Proposal Contributions": [
-        "Research, References, Slide deck, Video recording/Editing, Gantt chart ", 
-        "Report writing, Streamlit, Progress tracking, Submission, Gantt chart",
-        "Report writing, Streamlit, Gantt chart",
-        "Video recording",
-        "Video recording"]
+        "Data Preprocessing, Implement Models, Visualization", 
+        "Track Progress, Evaluate Models, Write report",
+        "Write Report, Streamlit, Evaluate Confusion Matrix",
+        "Discuss, Evaluate Accuracy",
+        "Discuss, Evaluate F1 score"]
 }
 
 df = pd.DataFrame(data)
