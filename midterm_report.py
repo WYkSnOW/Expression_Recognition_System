@@ -65,9 +65,9 @@ st.markdown("""
 
 st.subheader('Machine Learning Algorithms/Models')
 st.markdown("""
-1. **Random Forest**: Random Forest will classify facial expressions based on geometric features from facial key points, providing a reliable model that’s interpretable and relatively fast to train and evaluate.
-2. **Support Vector Machine (SVM)**: SVM will use facial landmark coordinates as input to classify expressions based on geometric differences, achieving high precision on complex expressions by focusing on distinct boundaries  
-3. **Convolutional Neural Network (CNN)**: The CNN will classify facial expressions directly from images, leveraging deep layers to capture subtle visual cues and patterns that are indicative of different expressions. The CNN can generalize well, even on diverse and complex datasets.
+1. **Random Forest**: Random Forest will use the facial landmark data to capture the unique patterns associated with different expressions using multiple decision trees. This approach provides a reliable model that’s interpretable and relatively fast to train and evaluate.
+2. **Support Vector Machine (SVM)**: SVM will use facial landmark data to classify expressions by finding the optimal boundaries between different classes based on landmark positions. This approach allows for high precision in recognizing expression.
+3. **Convolutional Neural Network (CNN)**:The CNN will classify facial expressions directly from raw image data, using multiple layers to capture specific visual features and patterns that indicate different expressions. This layered approach enables the CNN to identify detailed facial features, making it effective at accurately recognizing expressions.
 """)
 
 #
