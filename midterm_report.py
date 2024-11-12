@@ -145,7 +145,12 @@ st.image("streamlit/cnn_train_validation_loss.jpg", caption="Training and Valida
 
 st.subheader('Convolutional Neural Network Analysis')
 st.write("""
-The Convolutional Neural Network Model shows
+The Convolutional Neural Network model shows a significant improvement with an accuracy of 64.29% and a F1-Score of 0.6378.
+The confusion matrix shows that CNN has better predictions with a higher accuracy in the happy and neutral classes. 
+Although misclassifications still remain in the classes such as fear, sad, and angry, there are much less than the previous 2 models. 
+The training and validation accuracy curve indicates that the model is improving steadily until 65-70% where the curve flattens out. 
+Similarly, the loss curve shows consistent decrease in both training and validation loss, indicating that the model is learning effectively on the training and validation data. 
+Therefore, CNN performs much better than the previous models by effectively capturing patterns in the data.
 """)
 
 st.subheader('Overall Analysis')
