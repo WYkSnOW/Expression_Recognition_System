@@ -92,9 +92,9 @@ st.image("streamlit/rf_class_distribution.jpg", caption="Class Distribution for 
 
 st.subheader('Random Forest Analysis')
 st.write("""
-The Random Forest Model shows limited performace with an accuracy of 40.07% and a F1-Score of 0.37. 
-This indicates that the model struggles in generalization and class prediction. The confusion matrix and Class Distribution table show that the model is heavily biased toward predicting "happy" and fails entirely on the "disgust". 
-The cross-validation accracy table shows that the model's performance is inconsistent depending on the subset of data used for testing.
+The Random Forest model shows limited performance with an accuracy of 40.07% and an F1-score of 0.37.
+ This indicates that the model struggles with generalization and class prediction. The confusion matrix and class distribution table show a strong bias toward predicting "happy" and a consistent failure to accurately predict "disgust." 
+ Additionally, the cross-validation accuracy plot shows that the model's performance is inconsistent across different data subsets, meaning its accuracy varies depending on the subset of data used for testing.
 """)
 
 st.subheader('Support Vector Machine (SVM)')
