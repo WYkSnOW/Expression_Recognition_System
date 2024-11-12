@@ -117,10 +117,9 @@ st.image("streamlit/svm_class_distribution.jpg", caption="Class Distribution for
 
 st.subheader('Support Vector Machine Analysis')
 st.write("""
-The Support Vector Machine Model shows a moderate improvement over the Random Forest Model with an accuracy of 50.28% and F1-score of 0.48.
-Althought the model may have improved in generalization, the confusion matrix shows that it still significantly misclassifies underrepresented classes such as digust.
-There is a high accuracy for the happy class but there is a strong misclassification in emotions such as fear, sad, and neutral. 
-The cross validation accruacy shows variability across folds with a high above 50% and a low around 48%, showing that it is sensitive to specific data split.
+The Support Vector Machine Model ahieved an accuracy of 50.28% and F1-score of 0.48. The model performed better than the Random Forest Mode, 
+but still struggles to classify facial expression acccurately. Similar to the Random Forest model, the SVM model is also biased toward predicting "happy" and misclassifyling other expressions. 
+Although the overall accruacy in cross validation accuracy plot is around 50%, the variability across folds shows that the SVM model's performance also depends on the specific data subset used for training and testing.
 """)
 
 st.subheader('Convolutional Neural Network (CNN)')
