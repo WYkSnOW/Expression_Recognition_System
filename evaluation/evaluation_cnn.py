@@ -34,7 +34,7 @@ num_classes = len(test_dataset.classes)
 # Load the pretrained model
 model = models.resnet18(pretrained=False)
 model.fc = nn.Linear(model.fc.in_features, num_classes)
-model.load_state_dict(torch.load("ml_model/cnn_model.pth"))
+model.load_state_dict(torch.load("ml_model/cnn/cnn_model.pth"))
 model = model.to(device)
 model.eval()  # Set model to evaluation mode
 
@@ -72,7 +72,7 @@ plt.title("Confusion Matrix")
 plt.show()
 
 # Load training accuracy and loss history
-with open('ml_model/training_history.pkl', 'rb') as f:
+with open('ml_model/cnn/training_history.pkl', 'rb') as f:
     history = pickle.load(f)
 
 # Plot training and validation accuracy
