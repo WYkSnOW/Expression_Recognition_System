@@ -1,16 +1,16 @@
 import os
 import joblib
 
-# 定义label_encoder的路径
+# Define the path of label_encoder
 label_encoder_path = os.path.join('ml_model', 'label_encoder.pkl')
 
-# 加载label_encoder
+# Load label_encoder
 label_encoder = joblib.load(label_encoder_path)
 
-# 输出label_encoder的内容
+# Output the content of label_encoder
 print("Label Encoder Classes:")
 print(label_encoder.classes_)
 
-# 显示每个标签对应的编码
+# Show the encoding corresponding to each tag
 for index, label in enumerate(label_encoder.classes_):
     print(f"Label '{label}' is encoded as {index}")

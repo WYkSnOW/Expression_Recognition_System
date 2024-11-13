@@ -8,17 +8,17 @@ def normalize_image(img):
 
 
 def main():
-    # 读取图像文件
+    # Read the image file
     img = cv2.imread("../archive/train/angry/Training_3908.jpg")
 
-    # 归一化图像
+    # Normalize the image
     normalized_img = normalize_image(img)
 
-    # 显示
+    # Display
     # cv2.imshow("Original Image", img)
     cv2.imshow("Normalized Image", normalized_img)
 
-    # 等待键盘输入并关闭窗口
+    # Wait for keyboard input and close window
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 

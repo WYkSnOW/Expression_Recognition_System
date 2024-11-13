@@ -7,48 +7,48 @@ from sklearn.model_selection import cross_val_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 使用Python引擎加载数据，跳过坏行
+# Load data using Python engine, skip bad lines
 data = pd.read_csv('face_keypoints_test.csv', engine='python', on_bad_lines='skip')
 
-# 显示数据集的基本信息
-print(f'数据集共有 {data.shape[0]} 行和 {data.shape[1]} 列')
+# Display basic information of the dataset
+print(f'The dataset has {data.shape[0]} rows and {data.shape[1]} columns')
 print(data.head())
 
-# 检查是否存在缺失值并处理
+# Check for missing values and handle them
 if data.isnull().values.any():
-    print("数据中存在缺失值，处理缺失数据...")
-    data = data.dropna()  # 或者使用 data.fillna(method='ffill') 进行填充
+    print("Missing values detected in the data, handling missing data...")
+    data = data.dropna()  # Alternatively, use data.fillna(method='ffill') to fill
 
-# 提取标签和特征
+# Extract labels and features
 y_true = data['label']
-X = data.drop('label', axis=1).values  # 转换为模型输入所需的 numpy 数组
+X = data.drop('label', axis=1).values  # Convert to numpy array required for model input
 
-# 加载模型和标签编码器
+# Load model and label encoder
 label_encoder_path = os.path.join('ml_model', 'label_encoder.pkl')
 rf_model_path = os.path.join('ml_model', 'rf_model.pkl')
 
 label_encoder = joblib.load(label_encoder_path)
 rf_model = joblib.load(rf_model_path)
 
-# 对真实标签进行编码
+# Encode the true labels
 y_true_encoded = label_encoder.transform(y_true)
 
-# 使用模型进行预测
+# Make predictions using the model
 y_pred_encoded = rf_model.predict(X)
 
-# 计算准确率和 F1 分数
+# Calculate accuracy and F1 score
 accuracy = accuracy_score(y_true_encoded, y_pred_encoded)
-print(f'模型准确率: {accuracy*100:.2f}%')
+print(f'Model Accuracy: {accuracy*100:.2f}%')
 
 f1 = f1_score(y_true_encoded, y_pred_encoded, average='weighted')
-print(f'F1 分数: {f1:.2f}')
+print(f'F1 Score: {f1:.2f}')
 
-# 计算混淆矩阵
+# Calculate confusion matrix
 conf_matrix = confusion_matrix(y_true_encoded, y_pred_encoded)
-print("混淆矩阵:")
+print("Confusion Matrix:")
 print(conf_matrix)
 
-# 绘制混淆矩阵热图
+# Plot heatmap of confusion matrix
 plt.figure(figsize=(10, 8))
 sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=label_encoder.classes_, yticklabels=label_encoder.classes_)
 plt.xlabel("Predicted Labels")
@@ -56,7 +56,7 @@ plt.ylabel("True Labels")
 plt.title("Confusion Matrix")
 plt.show()
 
-# 使用交叉验证绘制准确率图表（适用于随机森林模型）
+# Plot accuracy chart using cross-validation (suitable for random forest model)
 cv_scores = cross_val_score(rf_model, X, y_true_encoded, cv=5, scoring='accuracy')
 
 plt.figure()
@@ -66,7 +66,7 @@ plt.ylabel('Accuracy')
 plt.title('Cross-Validation Accuracy for Random Forest Model')
 plt.show()
 
-# 数据探索：类别分布图
+# Data exploration: Class distribution chart
 plt.figure()
 sns.countplot(x=y_true)
 plt.xlabel('Class')
@@ -74,6 +74,6 @@ plt.ylabel('Count')
 plt.title('Class Distribution')
 plt.show()
 
-# 数据探索：关键点可视化（为简洁，仅显示前5个关键点的成对图）
-sns.pairplot(data.iloc[:, :5])  # 仅可视化前5列，便于阅读
+# Data exploration: Keypoint visualization (for simplicity, only shows pairplot of the first 5 keypoints)
+sns.pairplot(data.iloc[:, :5])  # Visualize only the first 5 columns for readability
 plt.show()
