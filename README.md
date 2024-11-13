@@ -16,8 +16,8 @@
 
 #### In the ml_model folder, you’ll find two compressed model files. Upzip each model file:
 
-1. svm_model.zip
-2. rf_model.zip
+1. svm.zip
+2. rf.zip
 
 #### Important: Ensure that unzippedl model files remain in the ml_model folder.
 

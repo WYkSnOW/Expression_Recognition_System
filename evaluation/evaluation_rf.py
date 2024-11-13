@@ -24,8 +24,8 @@ y_true = data['label']
 X = data.drop('label', axis=1).values  # Convert to numpy array required for model input
 
 # Load model and label encoder
-label_encoder_path = os.path.join('ml_model', 'label_encoder.pkl')
-rf_model_path = os.path.join('ml_model', 'rf_model.pkl')
+label_encoder_path = os.path.join('ml_model/svm', 'label_encoder.pkl')
+rf_model_path = os.path.join('ml_model/rf', 'rf_model.pkl')
 
 label_encoder = joblib.load(label_encoder_path)
 rf_model = joblib.load(rf_model_path)

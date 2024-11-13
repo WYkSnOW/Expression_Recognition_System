@@ -24,9 +24,9 @@ y_true = data['label']
 X = data.drop('label', axis=1).values  # Convert to numpy array
 
 # Load model, label encoder, and scaler
-label_encoder_path = os.path.join('ml_model', 'label_encoder.pkl')
-svm_model_path = os.path.join('ml_model', 'svm_model.pkl')
-scaler_path = os.path.join('ml_model', 'scaler.pkl')
+label_encoder_path = os.path.join('ml_model/svm', 'label_encoder.pkl')
+svm_model_path = os.path.join('ml_model/svm', 'svm_model.pkl')
+scaler_path = os.path.join('ml_model/svm', 'scaler.pkl')
 
 label_encoder = joblib.load(label_encoder_path)
 svm_model = joblib.load(svm_model_path)
