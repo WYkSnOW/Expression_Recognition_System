@@ -39,6 +39,11 @@ if not cap.isOpened():
     print("Error: Could not open video stream.")
     exit()
 
+# Initialize timer for emotion detection
+last_detection_time = time.time()
+detection_interval = 0.1  # in seconds
+current_label = "Detecting..."
+
 try:
     while True:
         ret, frame = cap.read()
@@ -46,18 +51,27 @@ try:
             print("Error: Failed to capture frame.")
             break
 
-        # Convert the frame to PIL Image for processing
-        image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        label = predict(image)
+        # Every 3 seconds, perform emotion detection
+        current_time = time.time()
+        if current_time - last_detection_time >= detection_interval:
+            # Convert the frame to PIL Image for processing
+            image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            current_label = predict(image)
+            last_detection_time = current_time  # Reset timer
 
         # Display the label on the frame
-        cv2.putText(frame, f"Predicted: {label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        cv2.putText(frame, f"Predicted: {current_label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-        # Display the frame
+        # Display the frame in real-time
         cv2.imshow("Real-Time Image Classification", frame)
 
+        # Check if the window is closed
+        if cv2.getWindowProperty("Real-Time Image Classification", cv2.WND_PROP_VISIBLE) < 1:
+            print("Window closed. Exiting...")
+            break
+
         # Wait for key press and check for 'Escape' (27) to exit
-        key = cv2.waitKey(3000) & 0xFF
+        key = cv2.waitKey(1) & 0xFF
         if key == 27:  # Escape key to close
             print("Exiting...")
             break
