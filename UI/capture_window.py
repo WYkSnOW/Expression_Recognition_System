@@ -41,7 +41,7 @@ if not cap.isOpened():
 
 # Initialize timer for emotion detection
 last_detection_time = time.time()
-detection_interval = 3  # in seconds
+detection_interval = 1  # in seconds
 current_label = "Detecting..."
 
 # Define button size
@@ -81,8 +81,8 @@ try:
             current_label = predict(image)
             last_detection_time = current_time  # Reset timer
 
-        # Display the label on the frame
-        cv2.putText(frame, f"Predicted: {current_label}", (10, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        # Display the label on the frame closer to the top edge
+        cv2.putText(frame, f"Predicted: {current_label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
         # Draw the exit button on the frame at the top-right corner
         cv2.rectangle(frame, button_position, 
