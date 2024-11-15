@@ -33,14 +33,26 @@ def click_event(event, x, y, flags, param):
             print(f"Face Box display toggled: {'ON' if show_face_box else 'OFF'}")
 
 
+def show_loading_window():
+    """
+    显示加载窗口，显示“Loading”字样。
+    """
+    loading_window = "Loading"
+    cv2.namedWindow(loading_window, cv2.WINDOW_NORMAL)
+    cv2.resizeWindow(loading_window, 400, 200)
+    loading_frame = 255 * (cv2.getStructuringElement(cv2.MORPH_RECT, (400, 200))).astype("uint8")
+    cv2.putText(loading_frame, "Loading", (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 0), 3)
+    cv2.imshow(loading_window, loading_frame)
+    cv2.waitKey(1)
+    return loading_window
+
+
 def main():
+    # 显示加载窗口
+    loading_window = show_loading_window()
+
     # 初始化 FaceMeshDetector
     detector = FaceMeshDetector()
-
-    # 设置检测间隔和初始变量
-    detection_interval = 1  # in seconds
-    current_label = "No Face Detected"
-    last_detection_time = time.time()
 
     # 初始化状态变量
     global running, button_position, face_mesh_button_position, face_box_button_position
@@ -49,6 +61,11 @@ def main():
     show_face_box = True   # 默认显示人脸框
     running = True
 
+    # 设置检测间隔和初始变量
+    detection_interval = 1  # in seconds
+    current_label = "No Face Detected"
+    last_detection_time = time.time()
+
     # 设置按钮尺寸
     button_size = (100, 40)
 
@@ -56,9 +73,11 @@ def main():
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         print("Error: Could not open video stream.")
+        cv2.destroyWindow(loading_window)
         return
 
-    # 设置鼠标点击事件
+    # 关闭加载窗口并设置主窗口
+    cv2.destroyWindow(loading_window)
     cv2.namedWindow("Real-Time FaceMesh & Emotion")
     cv2.setMouseCallback("Real-Time FaceMesh & Emotion", click_event)
 
