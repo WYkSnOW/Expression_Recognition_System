@@ -6,13 +6,13 @@ proposal_page = st.Page(
 )
 midterm_page = st.Page(
     page="midterm_report.py",
-    title="Midterm Report",
-    default=True
+    title="Midterm Report"
 )
 
 final_page = st.Page(
     page="final_report.py",
     title="Final Report",
+    default=True
 )
 
 pg = st.navigation(pages=[proposal_page, midterm_page, final_page])
