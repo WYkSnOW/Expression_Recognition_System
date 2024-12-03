@@ -4,3 +4,5 @@ Pillow
 pandas
 numpy
 torch
+torchvision
+mediapipe
