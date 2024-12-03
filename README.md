@@ -50,5 +50,14 @@
 - /train/train_rf_model.py: train rf model
 - /train/train_svm_model.py: train svm model
 
+- /UI/: directory for UI files
+- /UI/capture_window.py: window UI for live emotion prediction
+- /UI/upload_window.py: window UI for image emotion prediction
+- /UI/helper/: additional UI helper files
+- /UI/helper/emotion_model.py: emotion prediction using cnn model
+- /UI/helper/face_detection.py: face detection and outline
+- /UI/helper/face_mesh.py: face mesh detection and landmark vizualization
+- /UI/helper/utils.py: convert frame to PIL image
+
 - /views/: page navigation for streamlit
 
