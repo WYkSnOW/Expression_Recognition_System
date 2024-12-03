@@ -1,10 +1,1 @@
-streamlit
-opencv-python-headless
-
-Pillow
-pandas
-numpy
-torch
-torchvision
-mediapipe
 opencv-python-headless
