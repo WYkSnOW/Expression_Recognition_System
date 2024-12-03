@@ -7,7 +7,7 @@ from torchvision import datasets, transforms, models
 import pickle
 
 # Define data paths and hyperparameters
-DATA_DIR = "archive/train"
+DATA_DIR = "archive/test"
 IMG_SIZE = (48, 48)
 BATCH_SIZE = 64
 EPOCHS = 30
@@ -126,7 +126,7 @@ for epoch in range(EPOCHS):
     if val_accuracy > best_accuracy:
         best_accuracy = val_accuracy
         epochs_no_improve = 0
-        torch.save(model.state_dict(), "ml_model/cnn_model_epochs30.pth")
+        torch.save(model.state_dict(), "ml_model/cnn_model.pth")
         print("Best model saved")
     else:
         epochs_no_improve += 1

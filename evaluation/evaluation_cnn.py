@@ -72,7 +72,7 @@ plt.title("Confusion Matrix")
 plt.show()
 
 # Load training accuracy and loss history
-with open('ml_model/cnn/training_history.pkl', 'rb') as f:
+with open('ml_model/cnn/training_history_test.pkl', 'rb') as f:
     history = pickle.load(f)
 
 # Plot training and validation accuracy
