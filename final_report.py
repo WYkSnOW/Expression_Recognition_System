@@ -192,7 +192,7 @@ if "camera" not in st.session_state:
     st.session_state.camera = None 
 
 # Mode Buttons
-col1, col2, col3 = st.columns([15, 1, 1])
+col1, col2, col3 = st.columns([9, 1, 1])
 with col2:
     if st.button("Image", key="image_button", help="Switch to Image Mode"):
         st.session_state.mode = "IMAGE"
