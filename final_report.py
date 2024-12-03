@@ -194,8 +194,6 @@ if "camera" not in st.session_state:
 # Mode Buttons
 col1, col2, col3 = st.columns([15, 1, 1])
 col1_placeholder = col1.empty()
-with col1_placeholder:
-    st.markdown(f"**Result:** `{st.session_state.calculated_label_name}`")
 with col2:
     if st.button("Image", key="image_button", help="Switch to Image Mode"):
         st.session_state.mode = "IMAGE"
