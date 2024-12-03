@@ -14,9 +14,11 @@ final_page = st.Page(
     title="Final Report",
     default=True
 )
-demo = st.Page(
+
+demo_page = st.Page(
     page="demo.py",
     title="Demo"
 )
+pg = st.navigation(pages=[proposal_page, midterm_page, final_page, demo_page])
 
-pg = st.navigation(pages=[proposal_page, midterm_page, final_page])
+pg.run()
