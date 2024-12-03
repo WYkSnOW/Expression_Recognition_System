@@ -10,11 +10,6 @@ import pandas as pd
 import numpy as np 
 
 st.set_page_config(layout="wide")
-
-import streamlit as st
-import pandas as pd
-import numpy as np 
-
 #
 st.title('Facial Expression Recognition System Using Machine Learning')
 
@@ -141,16 +136,16 @@ st.markdown("""
 - **F1-Score**: 0.6378
 - **Confusion Matrix**: 
 """)
-st.image("streamlit/cnn_confusion_matrix.jpg", caption="CNN Confusion Matrix")
+st.image("streamlit/cnn_confusion_matrix_new.pic.jpg", caption="CNN Confusion Matrix")
 
 st.markdown("""
 - **Training and Validation Accuracy**: 
 """)
-st.image("streamlit/cnn_train_validation_accuracy.jpg", caption="Training and Validation Accuracy for CNN")
+st.image("streamlit/cnn_train_validation_accuracy_new.pic.jpg", caption="Training and Validation Accuracy for CNN")
 st.markdown("""
 - **Training and Validation Loss**: 
 """)
-st.image("streamlit/cnn_train_validation_loss.jpg", caption="Training and Validation Loss for CNN")
+st.image("streamlit/cnn_train_validation_loss_new.pic.jpg", caption="Training and Validation Loss for CNN")
 
 
 st.subheader('Convolutional Neural Network Analysis')
