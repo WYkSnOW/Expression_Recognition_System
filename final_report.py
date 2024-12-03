@@ -193,7 +193,6 @@ if "camera" not in st.session_state:
 
 # Mode Buttons
 col1, col2, col3 = st.columns([15, 1, 1])
-col1_placeholder = col1.empty()
 with col2:
     if st.button("Image", key="image_button", help="Switch to Image Mode"):
         st.session_state.mode = "IMAGE"
@@ -210,18 +209,15 @@ if st.session_state.mode == "IMAGE":
     uploaded_file = st.file_uploader(f"", type=["jpg", "jpeg", "png"], label_visibility="hidden")
     if uploaded_file: 
         image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Image", use_container_width=True)
         st.session_state.upload_text = "Re-Upload an Image"
         label = predict_emotion(image)
         st.session_state.calculated_label_name = label
         with upload_text:
             st.markdown("Re Upload Image")
-        with col1_placeholder:
-            st.markdown(f"**Result:** `{st.session_state.calculated_label_name}`")
+        st.markdown(f"**Result:** `{st.session_state.calculated_label_name}`")
     else:
         st.session_state.calculated_label_name = "No Face Detected"
-        with col1_placeholder:
-            st.markdown(f"**Result:** `{st.session_state.calculated_label_name}`")
+        st.markdown(f"**Result:** `{st.session_state.calculated_label_name}`")
         with upload_text:
             st.markdown("Upload Image")
 # Live Mode
@@ -294,8 +290,10 @@ elif st.session_state.mode == "LIVE":
                     # Update video feed in placeholder
                     video_placeholder.image(frame_rgb, channels="RGB")
                     
+                    # Display result below the camera feed
                     with result_placeholder:
                         st.markdown(f"**Result:** `{st.session_state.calculated_label_name}`")
+
 
 
 
