@@ -59,6 +59,8 @@ def main():
 
     # Create an empty placeholder for displaying the video
     placeholder = st.empty()
+    
+    result_placeholder = st.empty()
 
     # Initialize FaceMeshDetector
     detector = FaceMeshDetector()
@@ -111,11 +113,13 @@ def main():
             draw_face_boxes(frame, face_boxes)
 
             current_label = "No Face Detected"
+            
             if face_detected and face_boxes:
                 x, y, x_end, y_end = face_boxes[0]  # Only analyze the first detected face
                 face_image = convert_frame_to_image(frame, x, y, x_end, y_end)
                 current_label = predict_emotion(face_image)
 
+            result_placeholder.markdown(f"**Result:** `{current_label}`")
             # Display the prediction on the video frame
             cv2.putText(frame, f"Prediction: {current_label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
@@ -153,6 +157,8 @@ def main():
             ''',
             unsafe_allow_html=True,
         )
+        result_placeholder.markdown("**Result:** `No Camera Active`")
 
-if __name__ == "__main__":
+
+if "st_page" in st.session_state or __name__ == "__main__":
     main()
