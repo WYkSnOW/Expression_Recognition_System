@@ -12,19 +12,7 @@ from UI.helper.face_mesh import FaceMeshDetector
 
 
 def display_picture_mode():
-    enable_camera = st.checkbox("Enable Camera")
-    picture = st.camera_input("Take a picture", disabled=not enable_camera)
-
-    if picture:
-        st.image(picture, caption="Captured Image", use_column_width=True)
-        img = Image.open(picture)
-        label = predict_emotion(img)
-        st.markdown(f"**Result:** `{label}`")
-        return 
-
-    st.markdown("### Or upload an image:")
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"], label_visibility="visible")
-
     if uploaded_file:
         image = Image.open(uploaded_file)
         st.image(image, caption="Uploaded Image", use_column_width=True)
@@ -35,6 +23,7 @@ def display_picture_mode():
 
 
 def run_live_mode():
+    # Initialize session state for camera status
     if "camera_active" not in st.session_state:
         st.session_state.camera_active = False  # Camera is initially off
 
@@ -80,6 +69,8 @@ def run_live_mode():
 
     # Create an empty placeholder for displaying the video
     placeholder = st.empty()
+    
+    result_placeholder = st.empty()
 
     # Initialize FaceMeshDetector
     detector = FaceMeshDetector()
@@ -132,11 +123,13 @@ def run_live_mode():
             draw_face_boxes(frame, face_boxes)
 
             current_label = "No Face Detected"
+            
             if face_detected and face_boxes:
                 x, y, x_end, y_end = face_boxes[0]  # Only analyze the first detected face
                 face_image = convert_frame_to_image(frame, x, y, x_end, y_end)
                 current_label = predict_emotion(face_image)
 
+            result_placeholder.markdown(f"**Result:** `{current_label}`")
             # Display the prediction on the video frame
             cv2.putText(frame, f"Prediction: {current_label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
@@ -165,6 +158,7 @@ def run_live_mode():
         # Release the camera when stopped
         cap.release()
     else:
+        # If camera is not active, clear the placeholder
         placeholder.markdown(
             '''
             <div class="video-container">
@@ -173,11 +167,11 @@ def run_live_mode():
             ''',
             unsafe_allow_html=True,
         )
+        result_placeholder.markdown("**Result:** `No Camera Active`")
 
 def main():
     st.title("FaceMesh and Emotion Recognition")
 
-    # Mode toggle buttons
     col1, col2 = st.columns(2)
     with col1:
         if st.button("Live Mode"):
@@ -186,9 +180,7 @@ def main():
         if st.button("Picture Mode"):
             st.session_state.mode = "PICTURE"
 
-    # Execute the corresponding mode
     if st.session_state.get("mode") == "LIVE":
-        # Keep your existing Live Mode logic intact
         run_live_mode()
     elif st.session_state.get("mode") == "PICTURE":
         display_picture_mode()
