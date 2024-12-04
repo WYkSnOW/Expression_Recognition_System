@@ -2,6 +2,3 @@ opencv-python-headless
 torch
 torchvision
 mediapipe
-libgl1
-libglib2.0-dev
-cv2
