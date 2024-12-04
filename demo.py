@@ -10,10 +10,31 @@ from UI.helper.utils import convert_frame_to_image
 from UI.helper.face_mesh import FaceMeshDetector
 
 
-def main():
-    st.title("Real-Time FaceMesh and Emotion Recognition")
-    
-    # Initialize session state for camera status
+
+def display_picture_mode():
+    enable_camera = st.checkbox("Enable Camera")
+    picture = st.camera_input("Take a picture", disabled=not enable_camera)
+
+    if picture:
+        st.image(picture, caption="Captured Image", use_column_width=True)
+        img = Image.open(picture)
+        label = predict_emotion(img)
+        st.markdown(f"**Result:** `{label}`")
+        return 
+
+    st.markdown("### Or upload an image:")
+    uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"], label_visibility="visible")
+
+    if uploaded_file:
+        image = Image.open(uploaded_file)
+        st.image(image, caption="Uploaded Image", use_column_width=True)
+        label = predict_emotion(image)
+        st.markdown(f"**Result:** `{label}`")
+    else:
+        st.markdown("**No image uploaded or captured yet.**")
+
+
+def run_live_mode():
     if "camera_active" not in st.session_state:
         st.session_state.camera_active = False  # Camera is initially off
 
@@ -144,7 +165,6 @@ def main():
         # Release the camera when stopped
         cap.release()
     else:
-        # If camera is not active, clear the placeholder
         placeholder.markdown(
             '''
             <div class="video-container">
@@ -154,5 +174,25 @@ def main():
             unsafe_allow_html=True,
         )
 
-if __name__ == "__main__":
+def main():
+    st.title("FaceMesh and Emotion Recognition")
+
+    # Mode toggle buttons
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Live Mode"):
+            st.session_state.mode = "LIVE"
+    with col2:
+        if st.button("Picture Mode"):
+            st.session_state.mode = "PICTURE"
+
+    # Execute the corresponding mode
+    if st.session_state.get("mode") == "LIVE":
+        # Keep your existing Live Mode logic intact
+        run_live_mode()
+    elif st.session_state.get("mode") == "PICTURE":
+        display_picture_mode()
+
+
+if "st_page" in st.session_state or __name__ == "__main__":
     main()
