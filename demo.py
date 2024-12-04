@@ -10,9 +10,19 @@ from UI.helper.utils import convert_frame_to_image
 from UI.helper.face_mesh import FaceMeshDetector
 
 
-def main():
-    st.title("Real-Time FaceMesh and Emotion Recognition")
-    
+
+def display_picture_mode():
+    uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"], label_visibility="visible")
+    if uploaded_file:
+        image = Image.open(uploaded_file)
+        st.image(image, caption="Uploaded Image", use_column_width=True)
+        label = predict_emotion(image)
+        st.markdown(f"**Result:** `{label}`")
+    else:
+        st.markdown("**No image uploaded or captured yet.**")
+
+
+def run_live_mode():
     # Initialize session state for camera status
     if "camera_active" not in st.session_state:
         st.session_state.camera_active = False  # Camera is initially off
@@ -158,6 +168,22 @@ def main():
             unsafe_allow_html=True,
         )
         result_placeholder.markdown("**Result:** `No Camera Active`")
+
+def main():
+    st.title("FaceMesh and Emotion Recognition")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Live Mode"):
+            st.session_state.mode = "LIVE"
+    with col2:
+        if st.button("Picture Mode"):
+            st.session_state.mode = "PICTURE"
+
+    if st.session_state.get("mode") == "LIVE":
+        run_live_mode()
+    elif st.session_state.get("mode") == "PICTURE":
+        display_picture_mode()
 
 
 if "st_page" in st.session_state or __name__ == "__main__":
