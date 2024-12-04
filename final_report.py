@@ -122,10 +122,10 @@ but still struggles to classify facial expression acccurately. Similar to the Ra
 Although the overall accruacy in cross validation accuracy plot is around 50%, the variability across folds shows that the SVM model's performance also depends on the specific data subset used for training and testing.
 """)
 
-st.subheader('Convolutional Neural Network (CNN)')
+st.subheader('Improved Convolutional Neural Network (CNN)')
 st.markdown("""
-- **Accuracy**:  64.29%
-- **F1-Score**: 0.6378
+- **Accuracy**:  68.39%
+- **F1-Score**: 0.6780
 - **Confusion Matrix**: 
 """)
 st.image("streamlit/cnn_confusion_matrix_new.pic.jpg", caption="CNN Confusion Matrix")
@@ -142,12 +142,10 @@ st.image("streamlit/cnn_train_validation_loss_new.pic.jpg", caption="Training an
 
 st.subheader('Convolutional Neural Network Analysis')
 st.write("""
-The Convolutional Neural Network model shows a significant improvement with an accuracy of 64.29% and a F1-Score of 0.6378.
-The confusion matrix shows that CNN has better predictions with a higher accuracy in the happy and neutral classes. 
-Although misclassifications still remain in the classes such as fear, sad, and angry, there are much less than the previous 2 models. 
-The training and validation accuracy curve indicates that the model is improving steadily until 65-70% where the curve flattens out. 
-Similarly, the loss curve shows consistent decrease in both training and validation loss, indicating that the model is learning effectively on the training and validation data. 
-Therefore, CNN performs much better than the previous models by effectively capturing patterns in the data.
+After implementing and modifying new data preprocessing techniques and retraining the model, the Convolutional Neural Network model shows significant improvements with accuracy of {68.39}% and a F1-Score of {0.678}. 
+         The confusion matrix shows that the updated model provides some better predictions for happy, neutral, sad, and surprise classes. 
+         Misclassifications in challenging classes like fear, sad, and angry have been reduced. The training and validation accuracy curve indicates that the model is improving steadily until 63-68% where the curve flattens out. Similarly, the loss curve shows consistent decrease in both training and validation loss,
+          indicating that the model is learning effectively on the training and validation data. 
 """)
 
 st.subheader('Overall Analysis')
@@ -159,11 +157,16 @@ making it harder for the models to accurately predict minority classes.
 Additionally, the 48x48 pixel size of the images may have limited the model's ability to capture fine details, constraining the amount of available visual information that could differentiate similar emotions.
 """)
 
+st.subheader('Tradeoffs, Strengths, and Limitations.')
+st.markdown("""
+- **Random Forest**: Simple and interpretable but limited by poor generalization and bias toward the majority class.
+- **SVM**: Better than Random Forest but computationally intensive and struggles with imbalanced data.
+- **CNN**: Best performance due to its ability to learn complex patterns, but computationally expensive and requires more data preprocessing
+""")
+
 st.subheader('Next Steps')
 st.write("""
-After the analysis of our 3 models, it seems that our accuracy is still on the lower end. 
-We will attempt to improve our model by improving our data before we retrain them. 
-Also, we want to make a user interface where users can insert images into our model and output its prediction on the emotion.
+To further improve accuracy, we will transition to using the CK+ dataset. Additionally, we will use facial and hand key points from MediaPipe and map them onto a VRM model, to enable a real time transfer of facial expressions and hand movements to the virtual avatar. We also plan to introduce event-based features such as special effects, subtitiles, or pre-loaded animations.  
 """)
 
 st.header('References', divider="gray")
@@ -178,11 +181,11 @@ with st.expander('References'):
 data = {
     "Name": ["Waikyuk Kwong", "Zhihui Chen", "Tyler Lin", "Blane R. York", "Carter D. Robinson"],
     "Proposal Contributions": [
-        "Data Preprocessing, Implement Models, Visualization", 
-        "Track Progress, Evaluate Models, Write report",
-        "Write Report, Streamlit, Evaluate Confusion Matrix",
-        "Discuss, Evaluate Accuracy",
-        "Discuss, Evaluate F1 score"]
+        "Improved CNN Model performance, Real-time detection logic, Presentation", 
+        "Conducted model comparison evaluations, Streamlit Implementation & Debugging ",
+        "Streamlit Implementation & Debugging",
+        "Prepared slides, Organized files, Updated file descriptions",
+        "Developed Capture Window, Developed Image Upload"]
 }
 
 df = pd.DataFrame(data)
