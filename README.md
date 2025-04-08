@@ -46,13 +46,13 @@ Facial expressions are essential to human communication. In this project, we dev
 
 ---
 
-## Model Performance
+## 📊 Model Performance Summary
 
 | Model           | Accuracy | F1 Score |
 |----------------|----------|----------|
 | Random Forest  | 40.07%   | 0.37     |
 | SVM            | 50.28%   | 0.48     |
-| CNN (ResNet18) | **68.39%** | **0.678** |
+| CNN (ResNet18) | **71.39%** | **0.712** |
 
 > ✅ The CNN model significantly outperformed RF and SVM thanks to visual feature learning and augmentation.
 
@@ -148,20 +148,10 @@ This project implements a **hybrid facial expression recognition system** using 
 
 ### 🔍 Key Observations
 
-- **CNN** achieved the best performance with **68.39% accuracy** and **F1-score of 0.678**
+- **CNN** achieved the best performance with **71.39% accuracy** and **F1-score of 0.712**
 - **Class imbalance** (e.g., many "happy" samples, few "disgust") introduced prediction bias
 - The **48x48** resolution of FER-2013 limits ability to detect subtle emotion differences
 - CNN benefits greatly from **data augmentation** and **advanced preprocessing**
-
----
-
-## 📊 Model Performance Summary
-
-| Model           | Accuracy | F1 Score |
-|----------------|----------|----------|
-| Random Forest  | 40.07%   | 0.37     |
-| SVM            | 50.28%   | 0.48     |
-| CNN (ResNet18) | **71.39%** | **0.712** |
 
 ---
 
