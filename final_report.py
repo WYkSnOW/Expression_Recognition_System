@@ -124,8 +124,8 @@ Although the overall accruacy in cross validation accuracy plot is around 50%, t
 
 st.subheader('Improved Convolutional Neural Network (CNN)')
 st.markdown("""
-- **Accuracy**:  68.39%
-- **F1-Score**: 0.6780
+- **Accuracy**:  71.39%
+- **F1-Score**: 0.7120
 - **Confusion Matrix**: 
 """)
 st.image("streamlit/cnn_confusion_matrix_new.pic.jpg", caption="CNN Confusion Matrix")
@@ -142,7 +142,7 @@ st.image("streamlit/cnn_train_validation_loss_new.pic.jpg", caption="Training an
 
 st.subheader('Convolutional Neural Network Analysis')
 st.write("""
-After implementing and modifying new data preprocessing techniques and retraining the model, the Convolutional Neural Network model shows significant improvements with accuracy of {68.39}% and a F1-Score of {0.678}. 
+After implementing and modifying new data preprocessing techniques and retraining the model, the Convolutional Neural Network model shows significant improvements with accuracy of {71.39}% and a F1-Score of {0.678}. 
          The confusion matrix shows that the updated model provides some better predictions for happy, neutral, sad, and surprise classes. 
          Misclassifications in challenging classes like fear, sad, and angry have been reduced. The training and validation accuracy curve indicates that the model is improving steadily until 63-68% where the curve flattens out. Similarly, the loss curve shows consistent decrease in both training and validation loss,
           indicating that the model is learning effectively on the training and validation data. 

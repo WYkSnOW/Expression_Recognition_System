@@ -1,63 +1,184 @@
-## Facial Expression Recognition System Using Machine Learning
+# Facial Expression Recognition System Using Machine Learning
 
-### By:
-- Waiyuk Kwong
-- Zhihui Chen
-- Tyler Lin
-- Blane R. York
-- Carter D. Robinson
+## Project Overview
+
+Facial expressions are essential to human communication. In this project, we developed a machine learning-based facial expression recognition system that identifies emotions in real time. Leveraging both image data and facial landmarks, the system is capable of analyzing live video input and static images. It has potential applications in human-computer interaction, virtual avatars, education, and more.
+
+### Showcase
+![showcase](./streamlit/image.png)
+
+## Authors
+
+- **Waiyuk Kwong** – Implement Model, Preprocessing pipeline , Data Visualization, real-time detection
+- **Zhihui Chen** – Model evaluation, Streamlit implementation & debugging  
+- **Tyler Lin** – Streamlit development & debugging  
+- **Blane R. York** – Slide creation, file management  
+- **Carter D. Robinson** – UI for capture/upload windows, emotion prediction interface
+
+## Technical Stack
+
+- **Dataset**: FER-2013 ([Kaggle](https://www.kaggle.com/datasets/msambare/fer2013))
+- **Libraries**: PyTorch, OpenCV, MediaPipe, Streamlit, Scikit-learn
+- **Models Used**:  
+  - Random Forest (on facial landmarks)  
+  - Support Vector Machine (on facial landmarks)  
+  - Convolutional Neural Network (on raw images; fine-tuned ResNet18)
+
+---
+
+## System Architecture
+
+### Data Preprocessing
+
+- **Facial Key Point Extraction**: Using MediaPipe, we extract 468 facial landmarks to capture geometric features.  
+- **Image Normalization**: Standardizes image pixel values to reduce lighting and contrast inconsistencies.  
+- **Data Augmentation**: Rotation, flipping, cropping, color jittering to expand dataset and improve generalization.
+
+### Model Training
+
+- **CNN (ResNet18)**: Fine-tuned on FER-2013 with early stopping and learning rate scheduling.  
+- **Random Forest / SVM**: Trained on keypoint features extracted via MediaPipe.
+
+### UI Applications
+
+- **Capture Window** (`capture_window.py`): Real-time facial emotion recognition via webcam.  
+- **Upload Window** (`upload_window.py`): Detect emotion from static images.  
+
+---
+
+## Model Performance
+
+| Model           | Accuracy | F1 Score |
+|----------------|----------|----------|
+| Random Forest  | 40.07%   | 0.37     |
+| SVM            | 50.28%   | 0.48     |
+| CNN (ResNet18) | **68.39%** | **0.678** |
+
+> ✅ The CNN model significantly outperformed RF and SVM thanks to visual feature learning and augmentation.
+
+---
+
+## File Structure
+
+```bash
+/archive/                 
+  ├── train/              # Training images
+  └── test/               # Testing images
+
+/data_processing_method/  
+  ├── cnn_image_processing_pipeline.py  
+  ├── data_augmentation.py  
+  ├── face_mesh_module.py  
+  ├── image_normalization.py  
+  └── image_processing_pipeline.py  
+
+/evaluation/              
+  ├── evaluation_cnn.py  
+  ├── evaluation_rf.py  
+  └── evaluation_svm.py  
+
+/ml_model/                
+  ├── cnn_model.pth  
+  ├── svm.zip (unzip before use)  
+  └── rf.zip (unzip before use)  
+
+/train/                   
+  ├── train_cnn_model.py  
+  ├── train_rf_model.py  
+  └── train_svm_model.py  
+
+/UI/                      
+  ├── capture_window.py  
+  ├── upload_window.py  
+  └── helper/             
+      ├── emotion_model.py  
+      ├── face_detection.py  
+      ├── face_mesh.py  
+      └── utils.py  
+
+/views/                   
+  └── final_report.py     # Streamlit app (main report interface)
+```
+
+---
 
 ## Setup Instructions
 
-- This repository contains large model fils that require Git Large File Storage LFS for handling. 
-- Pleas sure you have Git LFS installed before cloning the repository. You can download and install Git LFS from https://git-lfs.com/
+### 1. Install Git LFS
 
-## Preparing Model Files
+This repository contains large model files. You must install **Git LFS** before cloning the repository:  
+🔗 https://git-lfs.com/
 
-#### In the ml_model folder, you’ll find two compressed model files. Upzip each model file:
+### 2. Clone the Repository
 
-1. svm.zip
-2. rf.zip
+```bash
+git clone <your_repo_url>
+```
 
-#### Important: Ensure that unzippedl model files remain in the ml_model folder.
+### 3. Unzip Model Files
 
-## Directory and Files Description
+Navigate to the `/ml_model/` directory and unzip the following files:
 
-- /archive/: directory for test and train data
-- /archive/test/: test data images
-- /archive/train/: train data images
+- `svm.zip`
+- `rf.zip`
 
-- /data_processing_method/: directory for preprocessing data
-- /data_processing_method/cnn_image_processing_pipeline.py: process image for cnn
-- /data_processing_method/data_augmentation.py: augment data
-- /data_processing_method/face_mesh_module.py: face mesh detector
-- /data_processing_method/image_normalization.py: normalize image
-- /data_processing_method/image_processing_pipeline.py:  image processing
+> **Note**: Ensure that the unzipped model files remain in the `/ml_model/` directory.
 
-- /evaluation/: code to evaluate models
-- /evaluation/evaluation_cnn.py: evaluate cnn model
-- /evaluation/evaluation_rf.py: evaluate rf model
-- /evaluation/evaluation_svm.py: evaluate svm model
+### 4. Install Dependencies
 
-- /helper/: helper functions
+Install required Python packages:
 
-- /ml_model/: machine learning models
+```bash
+pip install -r requirements.txt
+```
 
-- /streamlit/: images of chart analysis to show on streamlit
+### 5. Run the Streamlit App
 
-- /train/: code to train models
-- /train/train_cnn_model.py: train cnn model
-- /train/train_rf_model.py: train rf model
-- /train/train_svm_model.py: train svm model
+To launch the main UI and report interface:
 
-- /UI/: directory for UI files
-- /UI/capture_window.py: window UI for live emotion prediction
-- /UI/upload_window.py: window UI for image emotion prediction
-- /UI/helper/: additional UI helper files
-- /UI/helper/emotion_model.py: emotion prediction using cnn model
-- /UI/helper/face_detection.py: face detection and outline
-- /UI/helper/face_mesh.py: face mesh detection and landmark vizualization
-- /UI/helper/utils.py: convert frame to PIL image
+```bash
+streamlit run final_report.py
+```
 
-- /views/: page navigation for streamlit
+---
 
+## Final Report Summary
+
+This project implements a **hybrid facial expression recognition system** using both **geometric keypoint features** and **visual image features**. Three models were evaluated and compared: **Random Forest**, **Support Vector Machine**, and a **Convolutional Neural Network (CNN)** based on ResNet18.
+
+### 🔍 Key Observations
+
+- **CNN** achieved the best performance with **68.39% accuracy** and **F1-score of 0.678**
+- **Class imbalance** (e.g., many "happy" samples, few "disgust") introduced prediction bias
+- The **48x48** resolution of FER-2013 limits ability to detect subtle emotion differences
+- CNN benefits greatly from **data augmentation** and **advanced preprocessing**
+
+---
+
+## 📊 Model Performance Summary
+
+| Model           | Accuracy | F1 Score |
+|----------------|----------|----------|
+| Random Forest  | 40.07%   | 0.37     |
+| SVM            | 50.28%   | 0.48     |
+| CNN (ResNet18) | **71.39%** | **0.712** |
+
+---
+
+### 📈 Performance Charts (Available in `streamlit/`)
+
+- Confusion matrices  
+- Training & validation accuracy/loss  
+- Class distribution for each model  
+
+You can view all visualizations by running:
+
+```bash
+streamlit run final_report.py
+```
+---
+
+## Gantt Chart
+
+![Gantt Chart](streamlit/Gantt.jpg)  
+📅 [Google Sheets Gantt Chart](https://docs.google.com/spreadsheets/d/16sWj1XushsbAo5WwqrAq6MPuiGra0VFZrKK61rONgeo/edit?usp=sharing)
